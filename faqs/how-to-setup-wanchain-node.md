@@ -1,5 +1,6 @@
 ---
 layout: post
-title: How to setup a wanchain node
+author: Tyrion70
+title: How to setup a Wanchain node
 permalink: /faqs/how-to-setup-wanchain-node.html
 ---
