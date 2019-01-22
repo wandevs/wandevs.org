@@ -1,7 +1,7 @@
 ---
 layout: post
 author: jsgoyette
-title: How to setup a Wanchain node
+title: How to set up a Wanchain node for Development
 permalink: /faqs/how-to-setup-wanchain-node.html
 ---
 
