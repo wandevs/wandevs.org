@@ -41,7 +41,7 @@ html {
 }
 @media (min-width: 58em) {
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -82,7 +82,7 @@ html {
 }
 .sidebar li {
   padding-left: 1.3em;
-  font-size: 0.8em;
+  font-size: 0.85em;
 }
 .sidebar li:before {
   content: "\f054"; /* FontAwesome Unicode */
