@@ -1,9 +1,32 @@
+- title: Getting Started
+  nodes:
+  - url: /docs/
+    title: Introduction
+  - url: /docs/wanchain-overview/
+    title: Overview of Wanchain
+
 - title: Environment Setup
   nodes:
   - url: /docs/set-up-wanchain-node/
     title: Set up Wanchain Node
+  - url: /docs/create-wanchain-account/
+    title: Create an Account
   - url: /docs/using-the-console/
     title: Using the console
+  - url: /docs/send-transaction/
+    title: Send a Transaction
+
+- title: Smart Contracts
+  nodes:
+  - url: /docs/smart-contract-overview/
+    title: Overview of Smart Contracts
+  - url: /docs/smart-contract-development-tools/
+    title: Contract Development Tools
+  - url: /docs/create-token/
+    title: Create a Token
+  - url: /docs/call-contract/
+    title: Call a Contract
+
 - title: Cross-chain Transactions
   nodes:
   - url: /docs/crosschain-overview/
@@ -20,3 +43,11 @@
     title: Outbound Bitcoin Transaction
   - url: /docs/bitcoin-outbound-revoke/
     title: Outbound Bitcoin Revoke
+
+
+- title: Privacy Transactions
+  nodes:
+  - url: /docs/privacy-overview/
+    title: Overview of Privacy Transactions
+  - url: /docs/make-privacy-transaction/
+    title: Make a Privacy Transaction
