@@ -21,11 +21,11 @@
       <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
       {% endcomment %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub</a>
-
-      <p><span class="sidebar-nav-item">Site version: v{{ site.version }}</span></p>
     </nav>
 
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    <div class="sidebar-footer">
+      <p>Site version: v{{ site.version }}</p>
+      <p class="font-italic">&copy; {{ site.time | date: '%Y' }} {{ site.owner }} All rights reserved</p>
+    </div>
   </div>
 </div>
