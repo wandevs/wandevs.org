@@ -4,9 +4,6 @@
     title: Introduction
   - url: /docs/wanchain-overview/
     title: Overview of Wanchain
-
-- title: Environment Setup
-  nodes:
   - url: /docs/set-up-wanchain-node/
     title: Set up Wanchain Node
   - url: /docs/create-wanchain-account/
