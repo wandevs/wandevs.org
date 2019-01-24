@@ -3,13 +3,8 @@
 
     <nav class="sidebar-nav">
 
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
-
-      {% assign sections = site.docs.sidebar %}
-      {% for section in sections  %}
+      {% assign sidebar_sections = site.data.sidebar %}
+      {% for section in sidebar_sections  %}
         <h4>{{ section.title }}</h4>
         <ul>
         {% for node in section.nodes %}
