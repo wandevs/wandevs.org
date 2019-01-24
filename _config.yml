@@ -11,7 +11,7 @@ tagline: 'Wanchain Developers Portal'
 description: 'We build on Wanchain'
 
 url: https://wandevs.net
-baseurl: '/'
+baseurl: /
 
 # Custom vars
 version: 2.1.0
