@@ -1,1 +1,45 @@
-theme: jekyll-theme-hacker
+# Dependencies
+markdown: redcarpet
+highlighter: rouge
+
+# Permalinks
+permalink: pretty
+
+# Setup
+title: 'Wandevs'
+tagline: 'Wanchain Developers Portal'
+description: 'We build on Wanchain'
+
+url: https://wandevs.net
+baseurl: /
+
+# Custom vars
+version: 2.1.0
+
+github:
+ repo: https://github.com/wandevs
+
+docs:
+  sidebar:
+    - title: Environment Setup
+      nodes:
+      - url: /docs/set-up-wanchain-node/
+        title: Set up Wanchain Node
+      - url: /docs/using-the-console/
+        title: Using the console
+    - title: Cross-chain Transactions
+      nodes:
+      - url: /docs/crosschain-overview/
+        title: Overview of Crosschain Mechanism
+      - url: /docs/set-up-bitcoin-node/
+        title: Set up Bitcoin Node
+      - url: /docs/set-up-ethereum-node/
+        title: Set up Ethereum Node
+      - url: /docs/bitcoin-inbound/
+        title: Inbound Bitcoin Transaction
+      - url: /docs/bitcoin-inbound-revoke/
+        title: Inbound Bitcoin Revoke
+      - url: /docs/bitcoin-outbound/
+        title: Outbound Bitcoin Transaction
+      - url: /docs/bitcoin-outbound-revoke/
+        title: Outbound Bitcoin Revoke
