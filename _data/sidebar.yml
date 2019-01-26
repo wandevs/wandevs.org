@@ -16,7 +16,9 @@
 - title: Smart Contracts
   nodes:
   - url: /docs/smart-contract-overview/
-    title: Overview of Smart Contracts
+    title: Overview of Smart Contracts  
+  - url: /docs/hello-world/
+    title: Hello World! 
   - url: /docs/smart-contract-development-tools/
     title: Contract Development Tools
   - url: /docs/create-token/
@@ -48,3 +50,8 @@
     title: Overview of Privacy Transactions
   - url: /docs/make-privacy-transaction/
     title: Make a Privacy Transaction
+    
+  - title: Using the documentation
+  nodes:
+  - url: /docs/doc-contribution/
+    title: Contributions
