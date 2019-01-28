@@ -6,11 +6,22 @@
       {% assign sidebar_sections = site.data.sidebar %}
       {% for section in sidebar_sections  %}
         <h4>{{ section.title }}</h4>
-        <ul>
+        <ul class="sidebar-nav-list">
         {% for node in section.nodes %}
         {% if node.title != null %}
           <li>
             <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+            {% if node.subsections != null %}
+            <ul class="sidebar-nav-sublist">
+              {% for subsection in node.subsections %}
+              {% if subsection.title != null %}
+                <li class="{% if page.url == subsection.url %}active{% endif %}">
+                  <a class="sidebar-nav-item{% if page.url == subsection.url %} active{% endif %}" href="{{ subsection.url }}">{{ subsection.title }}</a>
+                </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+            {% endif %}
           </li>
         {% endif %}
         {% endfor %}

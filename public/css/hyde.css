@@ -123,6 +123,17 @@ a.sidebar-nav-item:focus {
   font-size: 1.1em;
   font-weight: bold;
 }
+/*
+.sidebar-nav-sublist {
+  display: none;
+}
+.has-active .sidebar-nav-sublist {
+  display: block;
+}
+a.active ~ .sidebar-nav-sublist {
+  display: block;
+}
+*/
 
 .sidebar-footer {
   margin-top: 4rem;
