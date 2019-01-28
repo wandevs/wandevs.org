@@ -1,4 +1,7 @@
-# 1.1 Introduction
+---
+layout: page
+title: Introduction
+---
 ## What you'll learn 
 
 - How to quickly spin up a node
