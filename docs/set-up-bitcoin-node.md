@@ -1,6 +1,6 @@
 ---
 layout: page
-title: How to set up a Bitcoin node for Wanchain Development
+title: Set up a Bitcoin Node
 ---
 
 These instructions cover how to set up a bitcoind node with RPC enabled, so
