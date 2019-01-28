@@ -1,5 +1,7 @@
-# Contribution guide 
-
+---
+layout: page
+title: Contribution Guide
+---
 1. Click on fork in top right hand corner
 ![Fork on github](/img/github_fork_repo.png)
 2. The Wiki will be cloned in your own repo, you will be redirected to https://github.com/your_handle/awesome-wanchain
