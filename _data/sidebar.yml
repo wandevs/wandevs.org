@@ -66,6 +66,11 @@
   - url: /docs/make-privacy-transaction/
     title: Make a Privacy Transaction
 
+- title: Create your first Wanchain application
+  nodes:
+  - url: /docs/starting-your-dapp/
+    title: Introduction to creating a Wanchain Dapp
+
 - title: Porting applications
   nodes:
   - url: /docs/introduction-to-porting/
