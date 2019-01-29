@@ -12,6 +12,8 @@
     title: Using the console
   - url: /docs/send-transaction/
     title: Send a Transaction
+  - url: /docs/set-up-wanchain-private-testnet/
+    title: Create a private testnet
 
 - title: Smart Contracts
   nodes:
@@ -63,6 +65,19 @@
     title: Overview of Privacy Transactions
   - url: /docs/make-privacy-transaction/
     title: Make a Privacy Transaction
+
+- title: Porting applications
+  nodes:
+  - url: /docs/introduction-to-porting/
+    title: Introduction to porting applications
+  - url: /docs/porting-ethereumjs/
+    title: Porting an EthereumJS application
+  - url: /docs/porting-ethjs/
+    title: Porting an EthJS application
+  - url: /docs/porting-web3/
+    title: Porting an WanJS application
+  - url: /docs/porting-other/
+    title: Porting other applications
 
 - title: Using the documentation
   nodes:
