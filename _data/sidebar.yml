@@ -32,19 +32,6 @@
   nodes:
   - url: /docs/crosschain-overview/
     title: Overview of Crosschain Mechanism
-  - url: /docs/bitcoin-integration/
-    title: Bitcoin Integration
-    subsections:
-      - url: /docs/set-up-bitcoin-node/
-        title: Set up Bitcoin Node
-      - url: /docs/bitcoin-inbound/
-        title: Inbound Bitcoin Transaction
-      - url: /docs/bitcoin-inbound-revoke/
-        title: Inbound Bitcoin Revoke
-      - url: /docs/bitcoin-outbound/
-        title: Outbound Bitcoin Transaction
-      - url: /docs/bitcoin-outbound-revoke/
-        title: Outbound Bitcoin Revoke
   - url: /docs/ethereum-integration/
     title: Ethereum Integration
     subsections:
@@ -58,6 +45,19 @@
         title: Outbound Ethereum Transaction
       - url: /docs/ethereum-outbound-revoke/
         title: Outbound Ethereu Revoke
+  - url: /docs/bitcoin-integration/
+    title: Bitcoin Integration
+    subsections:
+      - url: /docs/set-up-bitcoin-node/
+        title: Set up Bitcoin Node
+      - url: /docs/bitcoin-inbound/
+        title: Inbound Bitcoin Transaction
+      - url: /docs/bitcoin-inbound-revoke/
+        title: Inbound Bitcoin Revoke
+      - url: /docs/bitcoin-outbound/
+        title: Outbound Bitcoin Transaction
+      - url: /docs/bitcoin-outbound-revoke/
+        title: Outbound Bitcoin Revoke
 
 - title: Privacy Transactions
   nodes:
