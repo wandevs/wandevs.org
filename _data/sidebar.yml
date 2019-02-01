@@ -35,8 +35,6 @@
   - url: /docs/ethereum-integration/
     title: Ethereum Integration
     subsections:
-      - url: /docs/set-up-ethereum-node/
-        title: Set up Ethereum Node
       - url: /docs/ethereum-inbound/
         title: Inbound Ethereum Transaction
       - url: /docs/ethereum-inbound-revoke/
@@ -44,7 +42,7 @@
       - url: /docs/ethereum-outbound/
         title: Outbound Ethereum Transaction
       - url: /docs/ethereum-outbound-revoke/
-        title: Outbound Ethereu Revoke
+        title: Outbound Ethereum Revoke
   - url: /docs/bitcoin-integration/
     title: Bitcoin Integration
     subsections:

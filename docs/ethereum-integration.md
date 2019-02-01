@@ -3,6 +3,8 @@ layout: page
 title: Ethereum Integration
 ---
 
+### Overview
+
 The Wanchain cross-chain feature currently includes mainnet and testnet
 connections with the Ethereum network. This means that users can use the Wanchain
 multi-party computing Storeman solution to convert ETH coin on Ethereum to wETH
@@ -68,6 +70,36 @@ the time limit then the transaction will go into a "Revoked" state and can no
 longer be redeemed. In that case the `Revoke` call must be made by the sender to
 get the locked wBTC back.
 
-In the next pages, we will set up a connection to the Ethereum network, and
-then start making cross-chain transactions with
-[wanx](https://github.com/wandevs/wanx).
+### Connecting to Ethereum
+
+To conduct cross-chain transactions from Ethereum into Wanchain, we will need
+to be able to connect to the Ethereum network, both to send transactions and to
+listen for contract events. The mainnet integration connects to Ethereum
+mainnet, naturally, and the testnet integration connects with the Rinkeby
+network.
+
+Running an Ethereum comes with its own challenges, which we will not cover
+here. While you can run your own Ethereum node, for the examples below we will
+instead rely on Infura, a gateway service for the Ethereum network.
+
+If you are running your own Ethereum, you can use web3 to connect to it by
+passing in a new HTTP provider with the node's URL when initializing web3. For
+example, if the node is running on the same machine as the script, we can
+initialize web3 like so:
+
+```js
+const Web3 = require('web3');
+const web3eth = new Web(new Web3.providers.HttpProvider('http://localhost:18545');
+```
+
+To use Infura instead, we can initialize web3 in the same way, but instead of
+passing in the URL of the Ethereum node, we pass in the Infura URL.
+
+```js
+const Web3 = require('web3');
+const web3eth = new Web(new Web3.providers.HttpProvider('https://rinkeby.infura.io/<myToken>');
+```
+
+Make sure to add your Infura token to the URL. For testnet you should use the
+`rinkeby.infura.io` subdomain, as shown above, while for mainnet you should use
+the standard `infura.io` domain.
