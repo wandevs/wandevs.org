@@ -50,7 +50,7 @@ will no longer be able to redeem the wBTC, and the sender will have to make a
 
 The steps for outbound transactions are similar to the steps for inbound
 transactions, though with a few minor differences. For Ethereum, the steps
-are instead:
+for outbound transactions are instead:
 
 #### Steps for Outbound Ethereum Cross-chain Transaction
 1. Make a transaction on Wanchain that locks the tokens and that includes the
@@ -89,7 +89,7 @@ initialize web3 like so:
 
 ```js
 const Web3 = require('web3');
-const web3eth = new Web(new Web3.providers.HttpProvider('http://localhost:18545');
+const web3eth = new Web3(new Web3.providers.HttpProvider('http://localhost:18545');
 ```
 
 To use Infura instead, we can initialize web3 in the same way, but instead of
@@ -97,7 +97,7 @@ passing in the URL of the Ethereum node, we pass in the Infura URL.
 
 ```js
 const Web3 = require('web3');
-const web3eth = new Web(new Web3.providers.HttpProvider('https://rinkeby.infura.io/<myToken>');
+const web3eth = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/<myToken>');
 ```
 
 Make sure to add your Infura token to the URL. For testnet you should use the
