@@ -243,7 +243,8 @@ function printReceipt(receipt) {
 }
 ```
 
-Then let's define the remaining functions.
+Now let's define the remaining functions that make the lock and redeem contract
+calls, and that wait for Storeman group responding contract calls.
 
 ```js
 function sendLock(txCount) {
@@ -263,5 +264,55 @@ function sendLock(txCount) {
   return web3eth.eth.sendSignedTransaction('0x' + serializedTx);
 }
 
-function confirmLock
+function confirmLock(blockNumber) {
+
+  // Scan for the lock confirmation from the storeman
+  return cctx.listenLock(opts, blockNumber);
+}
+
+function sendRedeem(txCount) {
+
+  // Get the raw redeem tx
+  const redeemTx = cctx.buildRedeemTx(opts);
+  redeemTx.nonce = web3wan.utils.toHex(txCount);
+
+  // Sign and send the tx
+  const transaction = new WanTx(redeemTx);
+  transaction.sign(wanPrivateKey);
+  const serializedTx = transaction.serialize().toString('hex');
+
+  // Send the redeem transaction on Wanchain
+  return web3wan.eth.sendSignedTransaction('0x' + serializedTx);
+}
+
+function confirmRedeem(blockNumber) {
+
+  // Scan for the lock confirmation from the storeman
+  return cctx.listenRedeem(opts, blockNumber);
+}
+
 ```
+
+The `sendLock` and `sendRedeem` functions call `buildLockTx` or `buildRedeemTx`
+to generate a new transaction object with the correct parameters. Then the
+`nonce` is attached to the transaction object and the transaction is signed
+with the private key, and then serialized and sent to the network.
+
+In this example `listenLock` and `listenRedeem` are called to poll the network
+for a transaction from the Storeman group that fits the transaction criteria.
+If you don't want to rely on WanX to listen for those transactions, you can
+alternatively use `buildLockScanOpts` and `buildRedeemScanOpts` to get the
+parameters for the scan, and then make your own subscribe call to the network.
+
+with all of these functions in place, we can now run our script.
+
+```bash
+$ node eth2weth.js
+```
+
+If everything goes well you should see some output and no printed errors. If
+your script manages to send the lock transaction but fails to send the redeem
+transaction, you can either try the redeem again by rerunning the script with
+the redeemKey manually added, and with the initial lock transaction and listen
+lock commented out. Otherwise, once the timelock expires you can revoke the
+locked funds, as we will demonstrate in the next section.
