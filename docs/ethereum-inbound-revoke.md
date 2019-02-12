@@ -45,9 +45,7 @@ Then we can set up the revoke call.
 
 ```js
 Promise.resolve([])
-  .then(getNonceEth)
   .then(sendRevoke)
-  .then(printReceipt);
 ```
 
 The `getNonceEth` and `printReceipt` functions are the same as before and can
@@ -59,21 +57,17 @@ function sendRevoke(txCount) {
 
   // Get the raw revoke tx
   const revokeTx = cctx.buildRevokeTx(opts);
-  revokeTx.nonce = web3eth.utils.toHex(txCount);
-
-  // Sign and send the tx
-  const transaction = new EthTx(revokeTx);
-  transaction.sign(ethPrivateKey);
-  const serializedTx = transaction.serialize().toString('hex');
 
   // Send the revoke transaction on Ethereum
-  return web3eth.eth.sendSignedTransaction('0x' + serializedTx);
+  const receipt = await utils.sendRawEthTx(web3eth, revokeTx, opts.from, ethPrivateKey)
+
+  console.log('Revoke sent:', receipt);
 }
 ```
 
-Like with the `sendLock` and `sendRedeem` functions, the `sendRevoke` function
-uses WanX to build the revoke transaction, signs and serializes the
-transaction, and then sends the serialized transaction to the network.
+Like with the `sendLock` and `sendRedeem` functions, our `sendRevoke` function
+uses WanX to build the revoke transaction, and then uses the helper function to
+sign and send the transaction to the network.
 
 Go ahead and run the script.
 

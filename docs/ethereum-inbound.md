@@ -56,6 +56,65 @@ transactions to the Wanchain and Ethereum networks, `keythereum` to access the
 private keys, and `ethereumjs-tx` and `wanchainjs-tx` to build and sign
 transactions before submitting them to the network.
 
+To kick things off, create a new `utils.js` file, where we will put a couple of
+helper functions to send transactions on Wanchain and Ethereum.
+
+```bash
+$ vi utils.js
+```
+
+```js
+const EthTx = require('ethereumjs-tx');
+const WanTx = require('wanchainjs-tx');
+
+module.exports = {
+  sendRawEthTx,
+  sendRawWanTx,
+};
+
+async function sendRawEthTx(web3, rawTx, fromAccount, privateKey) {
+
+  // Get the tx count to determine next nonce
+  const txCount = await web3.eth.getTransactionCount(fromAccount);
+
+  // Add the nonce to tx
+  rawTx.nonce = web3.utils.toHex(txCount);
+
+  // Sign and serialize the tx
+  const transaction = new EthTx(rawTx);
+  transaction.sign(privateKey);
+  const serializedTx = transaction.serialize().toString('hex');
+
+  // Send the lock transaction on Ethereum
+  const receipt = await web3.eth.sendSignedTransaction('0x' + serializedTx);
+
+  return receipt;
+}
+
+async function sendRawWanTx(web3, rawTx, fromAccount, privateKey) {
+
+  // Get the tx count to determine next nonce
+  const txCount = await web3.eth.getTransactionCount(fromAccount);
+
+  // Add the nonce to tx
+  rawTx.nonce = web3.utils.toHex(txCount);
+
+  // Sign and serialize the tx
+  const transaction = new WanTx(rawTx);
+  transaction.sign(privateKey);
+  const serializedTx = transaction.serialize().toString('hex');
+
+  // Send the lock transaction on Ethereum
+  const receipt = await web3.eth.sendSignedTransaction('0x' + serializedTx);
+
+  return receipt;
+}
+```
+
+These two functions allow us to send raw transactions by passing in the web3
+object, the raw transaction object, the account address that the transaction is
+to be sent from, and the sending account's private key.
+
 Now, let's create a new node script named `eth2weth.js`. This will be just a
 single file script that gets executed by calling `node eth2weth.js`. At the top
 of the file, let's add our dependencies.
@@ -65,8 +124,7 @@ of the file, let's add our dependencies.
 const WanX = require('wanx');
 const Web3 = require('web3');
 const keythereum = require('keythereum');
-const EthTx = require('ethereumjs-tx');
-const WanTx = require('wanchainjs-tx');
+const utils = require('./utils');
 ```
 
 Next, let's initialize `wanx` and `web3` objects. For the sake of simplicity,
@@ -154,7 +212,14 @@ cross-chain transaction object.
 const cctx = wanx.newChain('eth', true);
 ```
 
-Before the transaction gets kicked off, let's also log out the transaction `opts`. In the crude example the `redeemKey` is not stored anywhere, so we need to make sure to print it to stdOut so that we can capture the `redeemKey`, in case we need to redeem or revoke later.
+Before the transaction gets kicked off, let's also log out the transaction
+`opts`. In the crude example the `redeemKey` is not stored anywhere, so we need
+to make sure to print it to stdOut so that we can capture the `redeemKey`, in
+case we need to redeem or revoke later.
+
+```js
+console.log('Tx opts:', opts)
+```
 
 <div class="alert alert-info">
   If the script runs perfectly you will not need to know or hang on to the
@@ -169,142 +234,82 @@ transaction. We'll fill in the missing functions in a bit.
 
 ```js
 Promise.resolve([])
-  .then(getNonceEth)
   .then(sendLock)
-  .then(printReceipt)
-
-  .then(getBlockNumberWan)
   .then(confirmLock)
-  .then(printReceipt)
-
-  .then(getNonceWan)
   .then(sendRedeem)
-  .then(printReceipt)
-
-  .then(getBlockNumberEth)
   .then(confirmRedeem)
-  .then(printReceipt);
+  .catch(err => {
+    console.log('Error:', err);
+  });
 ```
 
 The full logic of the transaction is handled by a chain of promises that flow
-through the required steps of the cross-chain transaction. In addition to the 4
-steps outlined previously, there are 2 additional calls to get the account
-nonce, `getNonceEth` and `getNonceWan`, plus 2 other additional calls to get
-the height of the current block. Also, each of the 4 steps is followed by a
-`printReceipt` call.
+through the required steps of the cross-chain transaction. The `lock` is sent
+and then confirmed, and then the `redeem` is sent and finally confirmed.
 
-The first functions we will define are the `getNonceEth` and `getNonceWan`
-functions. All they need to do is fetch the account's last nonce from the node
-(or Infura) and return it. Since in these examples we are constructing and
-signing raw transactions, we have to manually retrieve the last nonce for the
-account.  In other situations you may not need to make any additional calls to
-fetch the nonce, like if you are iteracting directly with a node with unlocked
-accounts.
-
+Let's go ahead and define these 4 functions.
 
 ```js
-function getNonceEth() {
-
-  // Get the tx count to determine next nonce
-  return web3eth.eth.getTransactionCount(opts.from);
-
-}
-
-function getNonceWan() {
-
-  // Get the tx count to determine next nonce
-  return web3wan.eth.getTransactionCount(opts.to);
-
-}
-```
-
-
-```js
-function getBlockNumberEth() {
-
-  // Get the current block number on Ethereum
-  return web3eth.eth.getBlockNumber();
-
-}
-
-function getBlockNumberWan() {
-
-  // Get the current block number on Wanchain
-  return web3wan.eth.getBlockNumber();
-
-}
-```
-
-```js
-function printReceipt(receipt) {
-
-  console.log('Receipt:', receipt);
-
-}
-```
-
-Now let's define the remaining functions that make the lock and redeem contract
-calls, and that wait for Storeman group responding contract calls.
-
-```js
-function sendLock(txCount) {
+async function sendLock() {
 
   // Get the raw lock tx
   const lockTx = cctx.buildLockTx(opts);
-  lockTx.nonce = web3eth.utils.toHex(txCount);
 
-  // Sign and send the tx
-  const transaction = new EthTx(lockTx);
+  // Send the lock tx on Ethereum
+  const receipt = await utils.sendRawEthTx(web3eth, lockTx, opts.from, ethPrivateKey);
 
-  // sign tx with private key
-  transaction.sign(ethPrivateKey);
-  const serializedTx = transaction.serialize().toString('hex');
-
-  // Send the lock transaction on Ethereum
-  return web3eth.eth.sendSignedTransaction('0x' + serializedTx);
+  console.log('Lock sent:', receipt);
 }
 
-function confirmLock(blockNumber) {
+async function confirmLock() {
+
+  // Get the current block number on Wanchain
+  const blockNumber = await web3wan.eth.getBlockNumber();
 
   // Scan for the lock confirmation from the storeman
-  return cctx.listenLock(opts, blockNumber);
+  const log = await cctx.listenLock(opts, blockNumber);
+
+  console.log('Lock confirmed:', log);
 }
 
-function sendRedeem(txCount) {
+async function sendRedeem() {
 
   // Get the raw redeem tx
   const redeemTx = cctx.buildRedeemTx(opts);
-  redeemTx.nonce = web3wan.utils.toHex(txCount);
-
-  // Sign and send the tx
-  const transaction = new WanTx(redeemTx);
-  transaction.sign(wanPrivateKey);
-  const serializedTx = transaction.serialize().toString('hex');
 
   // Send the redeem transaction on Wanchain
-  return web3wan.eth.sendSignedTransaction('0x' + serializedTx);
+  const receipt = await utils.sendRawWanTx(web3wan, redeemTx, opts.to, wanPrivateKey);
+
+  console.log('Redeem sent:', receipt);
 }
 
-function confirmRedeem(blockNumber) {
+async function confirmRedeem() {
+
+  // Get the current block number on Ethereum
+  const blockNumber = await web3eth.eth.getBlockNumber();
 
   // Scan for the lock confirmation from the storeman
-  return cctx.listenRedeem(opts, blockNumber);
+  const log = await cctx.listenRedeem(opts, blockNumber);
+
+  console.log('Redeem confirmed:', log);
+  console.log('COMPLETE!!!');
 }
 
 ```
 
-The `sendLock` and `sendRedeem` functions call `buildLockTx` or `buildRedeemTx`
-to generate a new transaction object with the correct parameters. Then the
-`nonce` is attached to the transaction object and the transaction is signed
-with the private key, and then serialized and sent to the network.
+The `sendLock` and `sendRedeem` methods call `buildLockTx` or `buildRedeemTx`
+to generate a new transaction object with the correct parameters. The
+transaction objects are sent to our helpers functions, which get and attach the
+`nonce` to the transaction object, signs the transaction with the private key,
+and then finally serializes the transaction and sends it to the network.
 
-In this example `listenLock` and `listenRedeem` are called to poll the network
+The `listenLock` and `listenRedeem` methods are called to poll the network
 for a transaction from the Storeman group that fits the transaction criteria.
 If you don't want to rely on WanX to listen for those transactions, you can
 alternatively use `buildLockScanOpts` and `buildRedeemScanOpts` to get the
 parameters for the scan, and then make your own subscribe call to the network.
 
-with all of these functions in place, we can now run our script.
+With all of these functions in place, we can now run our script.
 
 ```bash
 $ node eth2weth.js
