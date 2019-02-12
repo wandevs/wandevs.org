@@ -26,7 +26,7 @@ account, and the `from` should be the sending Wanchain account. The
 `ethKeyObject` should be derived from the `to` account, and the `wanKeyObject`
 should be derived from the `from` account.
 
-#### eth2weth.js
+#### weth2eth.js
 ```js
 const WanX = require('wanx');
 const Web3 = require('web3');
@@ -129,4 +129,38 @@ async function confirmLock() {
 
   console.log('Lock confirmed:', log);
 }
+
+async function sendRedeem() {
+
+  // Get the raw redeem tx
+  const redeemTx = cctx.buildRedeemTx(opts);
+
+  // Send the redeem transaction on Ethereum
+  const receipt = await utils.sendRawEthTx(web3eth, redeemTx, opts.to, ethPrivateKey);
+
+  console.log('Redeem sent:', receipt);
+}
+
+async function confirmRedeem() {
+
+  // Get the current block number on Wanchain
+  const blockNumber = await web3wan.eth.getBlockNumber();
+
+  // Scan for the redeem confirmation from the storeman
+  const log = await cctx.listenRedeem(opts, blockNumber);
+
+  console.log('Redeem confirmed', log);
+  console.log('COMPLETE!!!');
+}
+```
+
+The `sendLock` function includes an additional step to get the outbound fee and
+to attach it to the `opts` object before passing the `opts` into the
+`buildLockTx` method. Otherwise, as mentioned, the only other change is that
+the chains are reversed in respect to the inbound version.
+
+That's it. Go ahead and run the script.
+
+```bash
+$ node weth2eth.js
 ```
