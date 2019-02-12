@@ -16,7 +16,7 @@ Revoking a transaction involves only making a single contract call. For our
 example, going inbound from Ethereum to Wanchain, we need to make the call on
 Ethereum so that we can get our funds sent back to the Ether account.
 
-Let's start by making a new for the revoke.
+Let's start by making a new script file for the revoke.
 
 ```bash
 $ vi eth2weth-revoke.js
@@ -48,9 +48,7 @@ Promise.resolve([])
   .then(sendRevoke)
 ```
 
-The `getNonceEth` and `printReceipt` functions are the same as before and can
-be copied over from the `eth2weth.js` script. Then, we just need to define the
-`sendRevoke` function.
+Then, we just need to define the `sendRevoke` function.
 
 ```js
 function sendRevoke(txCount) {

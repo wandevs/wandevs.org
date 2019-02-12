@@ -63,6 +63,7 @@ helper functions to send transactions on Wanchain and Ethereum.
 $ vi utils.js
 ```
 
+#### utils.js
 ```js
 const EthTx = require('ethereumjs-tx');
 const WanTx = require('wanchainjs-tx');
