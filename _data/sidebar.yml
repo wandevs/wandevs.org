@@ -46,8 +46,6 @@
   - url: /docs/bitcoin-integration/
     title: Bitcoin Integration
     subsections:
-      - url: /docs/set-up-bitcoin-node/
-        title: Set up Bitcoin Node
       - url: /docs/bitcoin-inbound/
         title: Inbound Bitcoin Transaction
       - url: /docs/bitcoin-inbound-revoke/
