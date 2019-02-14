@@ -3,7 +3,7 @@ layout: page
 title: Ethereum Integration
 ---
 
-### Overview
+## Overview
 
 The Wanchain cross-chain feature currently includes mainnet and testnet
 connections with the Ethereum network. This means that users can use the Wanchain
@@ -43,9 +43,9 @@ completed by the Storeman group.
 
 The smart contracts enforce that the funds are redeemed within a given time
 period. That is, if the the funds are locked but the redeemer does not redeem
-the wETH token within 4 hours (the time until expiration for Ethereum), then
-the transaction will move to a "Revoked" state. If that happens, the redeemer
-will no longer be able to redeem the wBTC, and the sender will have to make a
+the token within 4 hours (the time until expiration for Ethereum), then the
+transaction will move to a "Revoked" state. If that happens, the redeemer will
+no longer be able to redeem the wBTC, and the sender will have to make a
 `Revoke` call to get the locked ETH back.
 
 The steps for outbound transactions are similar to the steps for inbound
@@ -70,7 +70,7 @@ the time limit then the transaction will go into a "Revoked" state and can no
 longer be redeemed. In that case the `Revoke` call must be made by the sender to
 get the locked wBTC back.
 
-### Connecting to Ethereum
+## Connecting to Ethereum
 
 To conduct cross-chain transactions from Ethereum into Wanchain, we will need
 to be able to connect to the Ethereum network, both to send transactions and to
