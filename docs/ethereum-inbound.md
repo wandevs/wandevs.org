@@ -45,7 +45,7 @@ To get things kicked off, let's start by creating a new project directory and
 install some npm dependencies.
 
 ```bash
-$ mkdir wanchain-crosschain-test
+$ mkdir wanchain-ethereum-crosschain
 $ cd !$
 $ npm init
 $ npm install --save wanx web3 keythereum ethereumjs-tx wanchainjs-tx
@@ -201,7 +201,7 @@ script as it currently stands.
 $ node eth2weth.js
 ```
 
-### Making the Transaction
+## Making the Transaction
 
 At this point the script is sufficiently set up and we are now ready to make
 the cross-chain transaction. To get this started, let's initialize a new
@@ -223,7 +223,7 @@ console.log('Tx opts:', opts)
 ```
 
 <div class="alert alert-info">
-  If the script runs perfectly you will not need to know or hang on to the
+  If the script runs perfectly you will not need to know or keep the
   <code>redeemKey</code>. But if the scripts has an error and the transaction
   does not complete, you will not be able to recover any lost funds without the
   <code>redeemKey</code>.

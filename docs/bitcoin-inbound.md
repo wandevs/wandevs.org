@@ -3,37 +3,36 @@ layout: page
 title: Inbound Bitcoin Transaction
 ---
 
-At this point you should have a testnet Wanchain node and a testnet Bitcoin
-node running, and you should have a funded Wanchain account and a funded
-Bitcoin address. With those in place, we are now ready to set up our first
-cross-chain transactions. To do this, we will use the `wanx` npm package.
+Before going any further, make sure you have a testnet Wanchain node and a
+testnet Bitcoin node running, and that you have a funded Wanchain account and a
+funded Bitcoin address. With those in place, we are ready to set up a Bitcoin
+cross-chain transaction.
 
-## Getting set up
+## Getting started
 
-### Set up for development
+To get started, let's create a new directory and initialize npm in it, and then
+add the dependencies we will be using in our example scripts.
 
-To get started, let's create a new directory and initialize npm in it.
-
-```
-$ mkdir crosschain-test
-$ cd crosschain-test
+```bash
+$ mkdir wanchain-bitcoin-crosschain
+$ cd !$
 $ npm init
+$ npm install --save wanx web3 keythereum wanchainjs-tx node-bitcoin-rpc moment bignumber.js
 ```
 
-Then let's add the dependencies we will be using in our example scripts.
+Before setting up our transaction script, let's add a file (`./utils.js`) that
+includes the Wanchain helper function introduced before with the Ethereum
+integration, but now also with another utility function for sending bitcoin to
+a given address. We'll use this `sendBtc` function to add funds to the P2SH
+lock address that we create.
 
-```
-$ npm install --save wanx web3 wanchainjs-tx keythereum node-bitcoin-rpc moment bignumber.js
-```
+**utils.js**
+```js
+const WanTx = require('wanchainjs-tx');
 
-Before setting up our transaction script, let's add a file (`./btc-utils.js`)
-with a utility function for sending bitcoin to a given address. We'll use this
-`sendBtc` function to add funds to the lock address that we create.
-
-**btc-utils.js**
-```javascript
 module.exports = {
   sendBtc,
+  sendRawWanTx,
 };
 
 function callRpc(bitcoinRpc, method, args) {
@@ -50,69 +49,91 @@ function callRpc(bitcoinRpc, method, args) {
   });
 }
 
-function sendBtc(bitcoinRpc, toAddress, toAmount, changeAddress) {
-  return Promise.resolve([]).then(() => {
+async function sendBtc(bitcoinRpc, toAddress, toAmount, changeAddress) {
 
-    return callRpc(bitcoinRpc, 'createrawtransaction', [[], { [toAddress]: toAmount }]);
+  const rawTx = await callRpc(bitcoinRpc, 'createrawtransaction', [[], { [toAddress]: toAmount }]);
 
-  }).then(rawTx => {
+  const fundArgs = { changePosition: 1 };
 
-    const fundArgs = { changePosition: 1 };
+  if (changeAddress) {
+    fundArgs.changeAddress = changeAddress;
+  }
 
-    if (changeAddress) {
-      fundArgs.changeAddress = changeAddress;
-    }
+  const fundedTx = await callRpc(bitcoinRpc, 'fundrawtransaction', [rawTx, fundArgs]);
 
-    return callRpc(bitcoinRpc, 'fundrawtransaction', [rawTx, fundArgs]);
+  const signedTx = await callRpc(bitcoinRpc, 'signrawtransactionwithwallet', [fundedTx.hex]);
 
-  }).then(fundedTx => {
+  const txid = await callRpc(bitcoinRpc, 'sendrawtransaction', [signedTx.hex]);
 
-    return callRpc(bitcoinRpc, 'signrawtransactionwithwallet', [fundedTx.hex]);
-
-  }).then(signedTx => {
-
-    return callRpc(bitcoinRpc, 'sendrawtransaction', [signedTx.hex]);
-
-  });
+  return txid;
 }
 
+async function sendRawWanTx(web3, rawTx, fromAccount, privateKey) {
+
+  // Get the tx count to determine next nonce
+  const txCount = await web3.eth.getTransactionCount(fromAccount);
+
+  // Add the nonce to tx
+  rawTx.nonce = web3.utils.toHex(txCount);
+
+  // Sign and serialize the tx
+  const transaction = new WanTx(rawTx);
+  transaction.sign(privateKey);
+  const serializedTx = transaction.serialize().toString('hex');
+
+  // Send the lock transaction on Ethereum
+  const receipt = await web3.eth.sendSignedTransaction('0x' + serializedTx);
+
+  return receipt;
+}
 ```
 
-## Making an inbound bitcoin transaction
+The `sendBtc` function creates a funded raw transaction with the change address
+in the second output. ().
+
+<div class="alert alert-info">
+  <b>Note</b>: For Storeman groups, a Bitcoin lock transaction is valid only if
+  the output that funds the P2SH address is the first output in the
+  transaction.
+</div>
+
+## Make the transaction
 
 Now let's start on our script that will make the inbound Bitcoin cross-chain
-transaction, which we will call `btc-inbound.js`. To remind you, this script
-will convert bitcoin (BTC) to the bitcoin token on Wanchain (wBTC), and it will
-do so by following the four steps listed above.
+transaction, `btc2wbtc.js`. To remind you, this script will convert bitcoin
+(BTC) to the bitcoin token on Wanchain (wBTC), and it will do so by following
+the steps previously mentioned.
 
-To start, add the necessary imports to the top of the script.
+To start, add the necessary dependencies to the top of the script.
 
-**btc-inbound.js**
-```javascript
+**btc2wbtc.js**
+```js
 const WanX = require('wanx');
 const Web3 = require('web3');
 const keythereum = require('keythereum');
-const WanTx = require('wanchainjs-tx');
-const moment = require('moment');
 const bitcoinRpc = require('node-bitcoin-rpc');
 const BigNumber = require('bignumber.js');
+const moment = require('moment');
 
-const btcUtils = require('./btc-utils');
+const utils = require('./utils');
 ```
 
-Next, set up an RPC connection with the bitcoin node.
+Next, set up an RPC connection with the bitcoin node, making sure to fill in
+the correct address, port, and RPC username and password.  Also, since the
+default timeout for the bitcoin RPC package is quite low and can cause
+problems, go ahead and increase that to 2 seconds.
 
-```javascript
-const btcNode = [ 'localhost', 18332, 'btcuser', 'btcpassword' ];
+```js
+const btcNode = [ 'localhost', 18332, '<btcuser>', '<btcpassword>' ];
 
 bitcoinRpc.init(...btcNode);
 bitcoinRpc.setTimeout(2000);
 ```
 
-Then set up WanX, as well as Web3, which we'll use for communicating with the
-Wanchain node.
+Then set up WanX, as well as Web3, which like before we'll use for
+communicating with the Wanchain node.
 
-```javascript
+```js
 const config = {
   wanchain: { url: 'http://localhost:18545' },
 };
@@ -126,7 +147,7 @@ For the final piece of the setup, let's use keythereum and unlock the Wanchain
 account keystore. Make sure to put in the correct Wanchain address, the
 correct path to the keystore file, as well as the correct keystore passphrase.
 
-```javascript
+```js
 const wanAddress = '<myWanchainAddress>';
 
 const wanDatadir = '/home/<myuser>/.wanchain/testnet/';
@@ -135,12 +156,12 @@ const wanPrivateKey = keythereum.recover('mypassword', wanKeyObject);
 ```
 
 Now we are ready to initialize a new wanx chain and start our cross-chain
-transaction. First, let's set up a new chain with wanx, using the `newChain`
+transaction. First, let's set up the new chain with wanx, using the `newChain`
 method. The 1st argument specifies the chain we want to connect with, in this
 case "btc", and the 2nd argument indicates that this will be an inbound
 transaction (`true` for inbound, and `false` for outbound).
 
-```javascript
+```js
 // bitcoin, inbound
 const cctx = wanx.newChain('btc', true);
 ```
@@ -158,15 +179,15 @@ purpose of revoking.
 $ bitcoin-cli -testnet getnewaddress '' legacy
 ```
 
-Now add the revoker address to our `btc-inbound.js` script.
+Now add the revoker address to our `btc2wbtc.js` script.
 
-```javascript
+```js
 const revokerAddress = 'mvTfNujpcQwHaefMxfJRix4vhfNBxSFbBe';
 ```
 
 At last, let's define the transaction options.
 
-```javascript
+```js
 const opts = {
   // Revoker bitcoin address
   from: revokerAddress,
@@ -195,17 +216,54 @@ key needed to redeem the token) and the hash of the random string (`xHash`,
 which is the transaction identifier). For the case of Bitcoin, we need the
 redeemKey hash to be a SHA256 hash.
 
-With our transaction options defined, we are finally at the point where we can
-actually start the transaction. The following snippet kicks off the transaction
-and runs through all of the required four steps, using a chain of promises.
+At this point the script is sufficiently set up and we are now ready to make
+the cross-chain transaction. To get this started, let's initialize a new
+cross-chain transaction object.
 
-```javascript
-Promise.resolve([]).then(() => {
+```js
+// New crosschain transaction
+// bitcoin, inbound
+const cctx = wanx.newChain('btc', true);
+```
 
-  // Step 1a: generate a new P2SH lock address and send bitcoin to it
+Before the transaction gets kicked off, let's also log out the transaction
+`opts`. In the crude example the `redeemKey` is not stored anywhere, so we need
+to make sure to print it to stdOut so that we can capture the `redeemKey`, in
+case we need to redeem or revoke later.
 
-  // Log our options
-  console.log('Starting btc inbound lock', opts);
+```js
+console.log('Tx opts:', opts)
+```
+
+<div class="alert alert-info">
+  If the script runs perfectly you will not need to know or keep the
+  <code>redeemKey</code>. But if the scripts has an error and the transaction
+  does not complete, you will not be able to recover any lost funds without the
+  <code>redeemKey</code>.
+</div>
+
+Here we initialized `cctx` as an inbound (inbound = true) transaction on the
+Bitcoin (btc) chain. Next, let's go ahead and add in the basic logic of the
+transaction. We'll fill in the missing functions in a bit.
+
+```js
+Promise.resolve([])
+  .then(lockBitcoin)
+  .then(sendLock)
+  .then(confirmLock)
+  .then(sendRedeem)
+  .then(confirmRedeem)
+  .catch(err => {
+    console.log('Error:', err);
+  });
+```
+
+Let's go ahead and define the functions for these five steps.
+
+```js
+async function lockBitcoin() {
+
+  // Step 1: generate a new P2SH lock address and send bitcoin to it
 
   // Create new P2SH lock address
   const contract = cctx.buildHashTimeLockContract(opts);
@@ -222,115 +280,68 @@ Promise.resolve([]).then(() => {
   console.log('Send amount', sendAmount);
 
   // Send BTC to P2SH lock address
-  return btcUtils.sendBtc(bitcoinRpc, contract.address, sendAmount);
-
-}).then(txid => {
-
-  // Step 1b: save the txid of the funding transaction
+  const txid = await btcUtils.sendBtc(bitcoinRpc, contract.address, sendAmount);
 
   // Add txid to opts
   opts.txid = txid;
 
   console.log('BTC tx sent', txid);
+}
 
-  // Get the tx count to determine next nonce
-  return web3wan.eth.getTransactionCount(opts.to);
+async function sendLock() {
 
-}).then(txCount => {
-
-  // Step 1c: send the lock notice on Wanchain
-
-  // Construct the raw lock tx
+  // Get the raw lock tx
   const lockTx = cctx.buildLockTx(opts);
 
-  // Add nonce to tx
-  lockTx.nonce = web3wan.utils.toHex(txCount);
+  // Send the lock tx on Ethereum
+  const receipt = await utils.sendRawWanTx(web3eth, lockTx, opts.to, wanPrivateKey);
 
-  // Sign and serialize the tx
-  const transaction = new WanTx(lockTx);
-  transaction.sign(wanPrivateKey);
-  const serializedTx = transaction.serialize().toString('hex');
+  console.log('Lock sent:', receipt);
+}
 
-  // Send the lock transaction on Wanchain
-  return web3wan.eth.sendSignedTransaction('0x' + serializedTx);
+async function confirmLock() {
 
-}).then(receipt => {
-
-  // Step 2: wait for the Storeman group to confirm the lock
-
-  console.log('Lock submitted and now pending on storeman');
-  console.log(receipt);
+  // Get the current block number on Wanchain
+  const blockNumber = await web3wan.eth.getBlockNumber();
 
   // Scan for the lock confirmation from the storeman
-  return cctx.listenLock(opts, receipt.blockNumber);
+  const log = await cctx.listenLock(opts, blockNumber);
 
-}).then(log => {
+  console.log('Lock confirmed:', log);
+}
 
-  console.log('Lock confirmed by storeman');
-  console.log(log);
-
-  // Get the tx count to determine next nonce
-  return web3wan.eth.getTransactionCount(opts.to);
-
-}).then(txCount => {
-
-  // Step 3: make Wanchain contract call to redeem the wBTC token
+async function sendRedeem() {
 
   // Get the raw redeem tx
   const redeemTx = cctx.buildRedeemTx(opts);
 
-  // Add nonce to tx
-  redeemTx.nonce = web3wan.utils.toHex(txCount);
+  // Send the redeem transaction on Wanchain
+  const receipt = await utils.sendRawWanTx(web3wan, redeemTx, opts.to, wanPrivateKey);
 
-  // Sign and serialize the tx
-  const transaction = new WanTx(redeemTx);
-  transaction.sign(wanPrivateKey);
-  const serializedTx = transaction.serialize().toString('hex');
+  console.log('Redeem sent:', receipt);
+}
 
-  // Send the lock transaction on Wanchain
-  return web3wan.eth.sendSignedTransaction('0x' + serializedTx);
-
-}).then(receipt => {
-
-  // Step 4: wait for the Storeman group to confirm the redeem
-
-  console.log('Redeem submitted and now pending on storeman');
-  console.log(receipt);
+async function confirmRedeem(receipt) {
 
   // Scan for the lock confirmation from the storeman
-  return cctx.listenRedeem(opts, receipt.blockNumber);
+  const log = await cctx.listenRedeem(opts, receipt.blockNumber);
 
-}).then(log => {
-
-  console.log('Redeem confirmed by storeman');
-  console.log(log);
+  console.log('Redeem confirmed:', log);
   console.log('COMPLETE!!!');
-
-}).catch(err => {
-
-  console.log('Error:', err);
-
-});
+}
 ```
 
-As you can see, the script starts by generating a new P2SH lock address
-(`buildHashTimeLockContract`) and sending bitcoin to it (`sendBtc`). The
+As you can see, the `sendLock` function generates a new P2SH lock address
+(`buildHashTimeLockContract`) and sends bitcoin to it (`sendBtc`). The
 `lockTime` and `txid` are saved to `opts`, as they are needed parameters in the
 next step where we send a lock notice contract call on Wanchain
 (`buildLockTx`). Once the lock notice is sent, it waits for a response from the
-storeman (`listenLock`). After the Storeman group confirms the lock, it then
-sends a redeem call on Wanchain (`buildRedeemTx`), and then finally waits for
-the Storeman group to confirm the redeem (`listenRedeem`).
+storeman (`listenLock`). After the Storeman group confirms the lock, it sends a
+redeem call on Wanchain. And then finally, it waits for the Storeman group to
+confirm the redeem.
 
 If everything went well, the Wanchain account used in the `opts` should now
-have 0.0021 wBTC token. The wBTC token is a WRC-20 token, so you can make
+have 0.0021 Bitcoin token. The token is a WRC-20 token, so you can make
 the usual token contract calls, such as `balanceOf`, `transfer`,
-`transferFrom`, etc. Accordingly, you can check the token balance at the
-console.
-
-```bash
-# Attach the console
-$ ./gwan attach http://localhost:18545
-
->
-```
+`transferFrom`, etc. Alternatively, you can check the explorer site to that the
+transaction completed and that the Wanchain account has Bitcoin token.
