@@ -51,7 +51,7 @@ Promise.resolve([])
 Then, we just need to define the `sendRevoke` function.
 
 ```js
-function sendRevoke(txCount) {
+function sendRevoke() {
 
   // Get the raw revoke tx
   const revokeTx = cctx.buildRevokeTx(opts);
