@@ -15,19 +15,21 @@ Privacy transactions are carried out on Wanchain by way of a smart contract
 built into the protocol. The smart contract resides at the following hard-coded
 address, and has the following ABI.
 
+**Privacy Contract Address**
 ```
 0x0000000000000000000000000000000000000064
 ```
 
+**Contract ABI**
 ```
 [{"constant":false,"type":"function","stateMutability":"nonpayable","inputs":[{"name":"OtaAddr","type":"string"},{"name":"Value","type":"uint256"}],"name":"buyCoinNote","outputs":[{"name":"OtaAddr","type":"string"},{"name":"Value","type":"uint256"}]},{"constant":false,"type":"function","inputs":[{"name":"RingSignedData","type":"string"},{"name":"Value","type":"uint256"}],"name":"refundCoin","outputs":[{"name":"RingSignedData","type":"string"},{"name":"Value","type":"uint256"}]},{"constant":false,"inputs":[],"name":"getCoins","outputs":[{"name":"Value","type":"uint256"}]}]
 ```
 
 Unlike a regular transaction, which involves a single transaction on the
 blockchain that transfers the account balance, a privacy transaction consists
-of two underlying transactions: a lock (buyCoinNote) transaction made by the
+of two underlying transactions: a lock (`buyCoinNote`) transaction made by the
 sender, which locks the WAN with the privacy smart contract, and a redeem
-(refundCoin) transaction made by the recipient, which transfers the WAN from
+(`refundCoin`) transaction made by the recipient, which transfers the WAN from
 the smart contract to the recipient.
 
 When a user locks WAN in the privacy smart contract, it is not possible to see
