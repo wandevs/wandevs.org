@@ -295,3 +295,7 @@ a.active ~ .sidebar-nav-sublist {
 .navbar a:hover {
   text-decoration: none;
 }
+.navbar .alert {
+  padding: .45rem 1.25rem;
+  margin-bottom: 0px;
+}
