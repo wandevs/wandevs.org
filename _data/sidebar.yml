@@ -43,6 +43,17 @@
         title: Outbound Ethereum Transaction
       - url: /docs/ethereum-outbound-revoke/
         title: Outbound Ethereum Revoke
+  - url: /docs/erc20-integration/
+    title: ERC20 Token Integration
+    subsections:
+      - url: /docs/erc20-inbound/
+        title: Inbound ERC20 Transaction
+      - url: /docs/erc20-inbound-revoke/
+        title: Inbound ERC20 Revoke
+      - url: /docs/erc20-outbound/
+        title: Outbound ERC20 Transaction
+      - url: /docs/erc20-outbound-revoke/
+        title: Outbound ERC20 Revoke
   - url: /docs/bitcoin-integration/
     title: Bitcoin Integration
     subsections:
@@ -66,6 +77,8 @@
   nodes:
   - url: /docs/starting-your-dapp/
     title: Introduction to creating a Wanchain Dapp
+  - url: /docs/using-wanmask/
+    title: Using WanMask in a Dapp
 
 - title: Porting applications
   nodes:
