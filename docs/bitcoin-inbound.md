@@ -165,7 +165,6 @@ transaction (`true` for inbound, and `false` for outbound).
 // bitcoin, inbound
 const cctx = wanx.newChain('btc', true);
 ```
-
 Our final setup action will be to define the transaction options. Each chain
 type requires certain parameters to be passed within the options, which can be
 deduced from the [WanX Documentation](https://wanchain/wanx).
@@ -216,16 +215,6 @@ key needed to redeem the token) and the hash of the random string (`xHash`,
 which is the transaction identifier). For the case of Bitcoin, we need the
 redeemKey hash to be a SHA256 hash.
 
-At this point the script is sufficiently set up and we are now ready to make
-the cross-chain transaction. To get this started, let's initialize a new
-cross-chain transaction object.
-
-```js
-// New crosschain transaction
-// bitcoin, inbound
-const cctx = wanx.newChain('btc', true);
-```
-
 Before the transaction gets kicked off, let's also log out the transaction
 `opts`. In the crude example the `redeemKey` is not stored anywhere, so we need
 to make sure to print it to stdOut so that we can capture the `redeemKey`, in
@@ -242,9 +231,8 @@ console.log('Tx opts:', opts)
   <code>redeemKey</code>.
 </div>
 
-Here we initialized `cctx` as an inbound (inbound = true) transaction on the
-Bitcoin (btc) chain. Next, let's go ahead and add in the basic logic of the
-transaction. We'll fill in the missing functions in a bit.
+Next, let's go ahead and add in the basic logic of the transaction. We'll fill
+in the missing functions in a bit.
 
 ```js
 Promise.resolve([])
