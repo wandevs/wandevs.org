@@ -13,17 +13,15 @@ title: Create token
 
 
 <details>
-  <summary>View the smart contract code!</summary>
-  
+<summary>View the smart contract code!</summary>
+<p>
+
 ```js
 {% include_relative solidity/token.sol %}
 ```
+
+</p>
 </details>
-
-```js
-{% include_relative solidity/token.sol %}
-```
-
 
 <div class="alert alert-info">
   <b>Note</b>: 
