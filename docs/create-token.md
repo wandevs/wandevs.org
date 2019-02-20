@@ -12,16 +12,11 @@ title: Create token
 </div>
 
 
-<details>
-<summary>View the smart contract code!</summary>
-<p>
+The standard token contract can be quite complex. But in essence a very basic token boils down to this:
 
 ```js
 {% include_relative solidity/token.sol %}
 ```
-
-</p>
-</details>
 
 <div class="alert alert-info">
   <b>Note</b>: 
