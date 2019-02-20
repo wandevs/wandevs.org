@@ -12,7 +12,14 @@ title: Create token
 </div>
 
 
-.. code:: js
+<details>
+  <summary>View the smart contract code!</summary>
+  
+```js
+{% include_relative solidity/token.sol %}
+```
+</details>
+
 ```js
 {% include_relative solidity/token.sol %}
 ```
@@ -59,10 +66,14 @@ Steps:
         )
 ```
 
-    4. the transaction id and contract address (hash values starting with '0x') will be printed out onto the console after few seconds
-    5. now, you can play with your Dapp
+4. the transaction id and contract address (hash values starting with '0x') will be printed out onto the console after few seconds
+5. now, you can play with your Dapp
 
-    .. note:: You can locate a demo WANCHAIN token contract and involved scripts under contracts/demo/ directory
+<div class="alert alert-info">
+  <b>Note</b>: 
+  You can locate a demo WANCHAIN token contract and involved scripts under contracts/demo/ directory
+</div>
+
 
 ### How To Invoke Privacy Transfer
 
@@ -70,7 +81,7 @@ After deployed above token contract on WANCHAIN,in the WANCHAIN console,you can 
 
 Suppose there are at lease 3 accounts in your WANCHAIN node
 
-    1. Define asset function and variable
+1. Define asset function and variable
 
     .. code:: js
 
@@ -100,7 +111,7 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
         wanUnlock(eth.accounts[2])
         stampBalance = 0.09;
 
-    2. buy stamp for token privacy transaction
+2. buy stamp for token privacy transaction
 
     .. code:: js
 
@@ -117,7 +128,7 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
         keyPairs = wan.computeOTAPPKeys(eth.accounts[1], otaAddrStamp).split('+');
         privateKeyStamp = keyPairs[0];
 
-    3. get stamp mix set for ring sign
+3. get stamp mix set for ring sign
 
     .. code:: js
 
@@ -127,7 +138,7 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
             mixSetWith0x.push(mixStampAddresses[i])
         }
     
-    4. define token contract ABI
+4. define token contract ABI
 
     .. code:: js
 
@@ -137,7 +148,7 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
         // this address should changed according to your contract deploy
         erc20simple = erc20simple_contract.at(contractAddr)
 
-    5. create one time address for account1
+5. create one time address for account1
 
     .. code:: js
 
@@ -154,14 +165,14 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
             throw Error('ota1 balance wrong! balance:' + ota1Balance + ', except:' + initPriBalance)
         }
 
-    6. generate ring sign data
+6. generate ring sign data
 
     .. code:: js
 
         var hashMsg = addrTokenHolder
         var ringSignData = personal.genRingSignData(hashMsg, privateKeyStamp, mixSetWith0x.join("+"))
     
-    7. create one time address for account2
+7. create one time address for account2
 
     .. code:: js
 
@@ -171,13 +182,13 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
         privateKeyOtaAcc2 = keyPairs[0];
         addrOTAAcc2 = keyPairs[2];
 
-    8. generate token privacy transfer data
+8. generate token privacy transfer data
 
     .. code:: js
 
         cxtInterfaceCallData = erc20simple.otatransfer.getData(addrOTAAcc2, otaAddr4Account2, priTranValue);
 
-    9. generate call token privacy transfer data
+9. generate call token privacy transfer data
 
     .. code:: js
 
@@ -185,14 +196,14 @@ Suppose there are at lease 3 accounts in your WANCHAIN node
         glueContract = glueContractDef.at("0x0000000000000000000000000000000000000000")
         combinedData = glueContract.combine.getData(ringSignData, cxtInterfaceCallData)
 
-    10. send privacy transaction
+10. send privacy transaction
 
     .. code:: js
 
         sendTx = personal.sendPrivacyCxtTransaction({from:addrTokenHolder, to:contractAddr, value:0, data: combinedData, gasprice:'0x' + (200000000000).toString(16)}, privateKeyTokenHolder)
         wait(function(){return eth.getTransaction(sendTx).blockNumber != null;});
 
-    11. check balance
+11. check balance
 
     .. code:: js
 
