@@ -45,12 +45,12 @@ The smart contracts enforce that the funds are redeemed within a given time
 period. That is, if the the funds are locked but the redeemer does not redeem
 the token within 4 hours (the time until expiration for Ethereum), then the
 transaction will move to a "Revoked" state. If that happens, the redeemer will
-no longer be able to redeem the wBTC, and the sender will have to make a
+no longer be able to redeem the wETH, and the sender will have to make a
 `Revoke` call to get the locked ETH back.
 
 The steps for outbound transactions are similar to the steps for inbound
-transactions, though with a few minor differences. For Ethereum, the steps
-for outbound transactions are instead:
+transactions, though with a couple small differences. For Ethereum, the steps
+for outbound transactions are:
 
 #### Steps for Outbound Ethereum Cross-chain Transaction
 1. Make a transaction on Wanchain that locks the tokens and that includes the
@@ -65,10 +65,10 @@ Besides working on opposite chains, the main difference from the steps for an
 inbound transaction is that for an outbound transaction the `Lock` call to the
 smart contract must include an outbound fee, priced in WAN.
 
-Also, like with inbound transactions, if the outbound redeemer does not redeem within
-the time limit then the transaction will go into a "Revoked" state and can no
-longer be redeemed. In that case the `Revoke` call must be made by the sender to
-get the locked wBTC back.
+Also, like with inbound transactions, if the outbound redeemer does not redeem
+within the time limit then the transaction will go into a "Revoked" state and
+can no longer be redeemed. In that case the `Revoke` call must be made by the
+sender to get the locked wETH back.
 
 ## Connecting to Ethereum
 
