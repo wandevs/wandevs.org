@@ -28,11 +28,10 @@ Then we can set up the revoke call.
 ```js
 Promise.resolve([])
   .then(sendRevoke)
-```
+  .catch(err => {
+    console.log('Error:', err);
+  });
 
-Now define the `sendRevoke` function.
-
-```js
 function sendRevoke(txCount) {
 
   // Get the raw revoke tx

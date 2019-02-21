@@ -69,6 +69,9 @@ Now we can set up the revoke call.
 ```js
 Promise.resolve([])
   .then(sendRevoke)
+  .catch(err => {
+    console.log('Error:', err);
+  });
 ```
 
 Finally, we just need to define the `sendRevoke` function.

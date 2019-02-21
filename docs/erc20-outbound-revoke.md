@@ -1,15 +1,16 @@
 ---
 layout: page
-title: Revoke an Ethereum Outbound Transaction
+title: Revoke an ERC20 Outbound Transaction
 ---
 
-The outbound revoke is basically identical to the inbound revoke, except that
-instead of calling it on Ethereum, the outbound revoke is called on Wanchain.
+Just as with the Ethereum integration, the outbound revoke is basically
+identical to the inbound revoke, except that instead of calling it on Ethereum,
+the outbound revoke is called on Wanchain.
 
 So with that said, let's start by making a new script file for the revoke.
 
 ```bash
-$ vi weth2eth-revoke.js
+$ vi wdai2dai-revoke.js
 ```
 
 Copy over the top portion of previous scripts, though as before make sure to
@@ -49,5 +50,5 @@ function sendRevoke(txCount) {
 Finally, go ahead and run the script.
 
 ```bash
-$ node eth2weth-revoke.js
+$ node dai2wdai-revoke.js
 ```
