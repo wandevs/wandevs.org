@@ -5,7 +5,7 @@ title: Revoke an Ethereum Inbound Transaction
 
 If the locked funds are not redeemed by a certain amount of time, then the
 cross-chain transaction changes to a state of `Revoked` within the smart
-contracts. Once it changes to `Revoked`, the funds can no loger be redeemed by
+contracts. Once it changes to `Revoked`, the funds can no longer be redeemed by
 the receiver, but instead must be revoked by the sender.
 
 The amount of time before the cross-chain transaction expires is defined by the
