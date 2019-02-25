@@ -1,5 +1,5 @@
 ---
 layout: page
-author: tyrion70
+author: johann
 title: Smart Contract Overview
 ---

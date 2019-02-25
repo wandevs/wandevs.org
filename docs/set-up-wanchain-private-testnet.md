@@ -3,16 +3,26 @@ layout: page
 author: tyrion70
 title: How to setup a Wanchain private network
 ---
+Note: The codebranch used in this tutorial might not be up-to-date with the latest Wanchain code. This tutorial is meant to show you how to create a private testnet yourself. 
+
 This article covers the step to use or make a private testnet preconfigured on chainid 99.
-You cannot run a testnet on the mainnet id (1) or testnetid (3)
-without changing a lot of code yourself. 
+You cannot (easily) run a testnet on the mainnet id (1) or testnetid (3), therefor you need to create a new testnet on another chainid. 
 
-There are two allowed signers configured to work for chain 99. These are:
+Because Wanchain runs PPOW you need to tell Wanchain which account addresses are allowed to sign/create new blocks. There are two allowed signers configured to work for chain 99. These are:
 
-  * 9da26fc2e1d6ad9fdd46138906b0104ae68a65d8
-  * 2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e
+  * 0x68489694189aa9081567dfc6d74a08c0c21d92c6
+  * 0x184bfe537380d650533846c8c7e2a80d75acee63
   
-The password of these keystores is password1
+The password of these keystores is password1 and the keystores are supplied in the gitrepo.
+
+## Prerequisites
+Start by checking out the go-wanchain sourcecode
+
+```git clone git@github.com:wanchain/go-wanchain.git```
+
+and checkout the private testnet branch
+
+```git checkout private_testnet```
 
 ## How to start the private testnet
 If you just want to run a private testnet without knowing how it works, use the following information. 
@@ -23,7 +33,9 @@ To add a second miner use the ```dev_run_privatenet2.sh``` file
 and to start a node that doesn't mine use ```dev_run_privatenet_no_mining.sh```. 
 These last two require the first to be running.
 
-## How does it work
+If you want to run them on different machines, change the IP address in bootnodes parameter accordingly.
+
+## How it all works
 If you want to know how the various parts actually work together read on. 
 
 In order to create a private network a few things need to be arranged. To run a network you need to mine blocks. Mining in Wanchain is done with PPOW. In short you tell beforehand which addresses are allowed to sign new blocks. Then you start mining with a node that has that address in its wallet (unlocked).
@@ -78,7 +90,15 @@ INFO [02-20|20:52:42] Loaded most recent local header          number=0 hash=0x5
 
 and put it in ```params/config.go```. rebuild gwan and start it again.
 
-### Lastly to make privacy tx work you need to create a few OTAs first. you can use the initializeota script for that.
+### Running WanWalletGui on your private node
+
+To let WanWalletGui use your node you need to enable the IPCPATH parameter in the startup script
+
+```# IPCPATH=[fill in your IPC path here  to use wanwalletgui with your node]```
+
+### Initializing OTAs
+
+Lastly to make privacy tx work you need to create a few OTAs first. you can use the initializeota script for that.
 
 ```js
 loadScript("./loadScript/initializeota.js")
