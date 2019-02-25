@@ -11,6 +11,3 @@ version: 0.1.0
 
 github:
  repo: https://github.com/wandevs
-
-plugins:
- - runkit

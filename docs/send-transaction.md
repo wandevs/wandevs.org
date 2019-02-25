@@ -48,10 +48,3 @@ console.log(serializedTx)
 ```
 
 
-{% runkit
-// hidden setup JavaScript code goes in this preamble area
-const hiddenVar = 42
-%}
-// visible, reader-editable JavaScript code goes here
-console.log(hiddenVar)
-{% endrunkit %} 
