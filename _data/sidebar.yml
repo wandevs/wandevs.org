@@ -36,38 +36,38 @@
   nodes:
   - url: /docs/crosschain-overview/
     title: Overview of Crosschain Mechanism
-  - url: /docs/ethereum-integration/
+  - url: /docs/ethereum/integration/
     title: Ethereum Integration
     subsections:
-      - url: /docs/ethereum-inbound/
+      - url: /docs/ethereum/inbound/
         title: Inbound Ethereum Transaction
-      - url: /docs/ethereum-inbound-revoke/
+      - url: /docs/ethereum/inbound-revoke/
         title: Inbound Ethereum Revoke
-      - url: /docs/ethereum-outbound/
+      - url: /docs/ethereum/outbound/
         title: Outbound Ethereum Transaction
-      - url: /docs/ethereum-outbound-revoke/
+      - url: /docs/ethereum/outbound-revoke/
         title: Outbound Ethereum Revoke
-  - url: /docs/erc20-integration/
+  - url: /docs/erc20/integration/
     title: ERC20 Token Integration
     subsections:
-      - url: /docs/erc20-inbound/
+      - url: /docs/erc20/inbound/
         title: Inbound ERC20 Transaction
-      - url: /docs/erc20-inbound-revoke/
+      - url: /docs/erc20/inbound-revoke/
         title: Inbound ERC20 Revoke
-      - url: /docs/erc20-outbound/
+      - url: /docs/erc20/outbound/
         title: Outbound ERC20 Transaction
-      - url: /docs/erc20-outbound-revoke/
+      - url: /docs/erc20/outbound-revoke/
         title: Outbound ERC20 Revoke
-  - url: /docs/bitcoin-integration/
+  - url: /docs/bitcoin/integration/
     title: Bitcoin Integration
     subsections:
-      - url: /docs/bitcoin-inbound/
+      - url: /docs/bitcoin/inbound/
         title: Inbound Bitcoin Transaction
-      - url: /docs/bitcoin-inbound-revoke/
+      - url: /docs/bitcoin/inbound-revoke/
         title: Inbound Bitcoin Revoke
-      - url: /docs/bitcoin-outbound/
+      - url: /docs/bitcoin/outbound/
         title: Outbound Bitcoin Transaction
-      - url: /docs/bitcoin-outbound-revoke/
+      - url: /docs/bitcoin/outbound-revoke/
         title: Outbound Bitcoin Revoke
 
 - title: Privacy Transactions
