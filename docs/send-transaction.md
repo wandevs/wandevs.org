@@ -24,7 +24,8 @@ web3.eth.sendTransaction({
 ```
 
 ### Wanchainjs-tx
-```js
+<script src="https://embed.runkit.com" data-element-id="runkit-element"></script>
+<div id="runkit-element">
 const WanchainTx = require('wanchainjs-tx')
 const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
  
@@ -39,12 +40,10 @@ const txParams = {
   // EIP 155 chainId - mainnet: 1, testnet: 3, privatenet: 99, devnet: 1337
   chainId: 99
 }
- 
+
 const tx = new WanchainTx(txParams)
 tx.sign(privateKey)
 console.log(tx.getSenderAddress().toString('hex'))
 const serializedTx = tx.serialize().toString('hex')
 console.log(serializedTx)
-```
-
-
+</div>
