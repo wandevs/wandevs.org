@@ -251,7 +251,7 @@ Let's go ahead and define the functions for these five steps.
 ```js
 async function lockBitcoin() {
 
-  // Step 1: generate a new P2SH lock address and send bitcoin to it
+  1.md
 
   // Create new P2SH lock address
   const contract = cctx.buildHashTimeLockContract(opts);

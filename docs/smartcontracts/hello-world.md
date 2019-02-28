@@ -1,7 +1,7 @@
 ---
 layout: page
 author: tyrion70
-title: Hello Guidler 
+title: Hello World 
 ---
 
 ### Building a smart contract 
@@ -33,33 +33,11 @@ Now that you’ve mastered the basics of Wanchain, let’s move into your first 
 
 The Greeter is an intelligent digital entity that lives on the blockchain and is able to have conversations with anyone who interacts with it, based on its input. It might not be a talker, but it’s a great listener. Here is its code:
 
-    pragma solidity >=0.4.22 <0.6.0;
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fiddle1">View Code</button>
+<div class="collapse" id="fiddle1">
+<iframe src="https://ethfiddle.com/services/iframesnippet/rMFEply5F5" scrolling="no" frameborder="0" height="300" width="300" allowtransparency="true" class="ef_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+</div>
 
-    contract Mortal {
-        /* Define variable owner of the type address */
-        address owner;
-
-        /* This constructor is executed at initialization and sets the owner of the contract */
-        constructor() public { owner = msg.sender; }
-
-        /* Function to recover the funds on the contract */
-        function kill() public { if (msg.sender == owner) selfdestruct(msg.sender); }
-    }
-
-    contract Greeter is Mortal {
-        /* Define variable greeting of the type string */
-        string greeting;
-
-        /* This runs when the contract is executed */
-        constructor(string memory _greeting) public {
-            greeting = _greeting;
-        }
-
-        /* Main function */
-        function greet() public view returns (string memory) {
-            return greeting;
-        }
-    }
 
 You'll notice that there are two different contracts in this code: _"Mortal"_ and _"Greeter"_.  This is because Solidity (the high level contract language we are using) has *inheritance*, meaning that one contract can inherit characteristics of another. This is very useful to simplify coding as common traits of contracts don't need to be rewritten every time, and all contracts can be written in smaller, more readable chunks. So by just declaring that _Greeter is Mortal_ you inherited all characteristics from the _"Mortal"_ contract and kept the _"Greeter"_ code simple and easy to read.
 

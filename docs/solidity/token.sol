@@ -1,4 +1,5 @@
 pragma solidity ^0.4.11;
+// https://ethfiddle.com/zFXdifNZZ9
 
 /**
 * Math operations with safety checks

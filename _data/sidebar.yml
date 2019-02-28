@@ -4,6 +4,8 @@
     title: Introduction
   - url: /docs/wanchain-overview/
     title: Overview of Wanchain
+  - url: /docs/difference-between-wanchain-and-ethereum/
+    title: Difference between Wanchain and Ethereum
   - url: /docs/license/
     title: License information
   - url: /docs/set-up-wanchain-node/
@@ -21,15 +23,15 @@
 
 - title: Smart Contracts
   nodes:
-  - url: /docs/smart-contract-overview/
+  - url: /docs/smartcontracts/overview/
     title: Overview of Smart Contracts
-  - url: /docs/hello-world/
+  - url: /docs/smartcontracts/hello-world/
     title: Hello World!
-  - url: /docs/smart-contract-development-tools/
+  - url: /docs/smartcontracts/development-tools/
     title: Contract Development Tools
-  - url: /docs/create-token/
+  - url: /docs/smartcontracts/create-token/
     title: Create a Token
-  - url: /docs/call-contract/
+  - url: /docs/smartcontracts/call-contract/
     title: Call a Contract
 
 - title: Cross-chain Transactions
@@ -72,29 +74,29 @@
 
 - title: Privacy Transactions
   nodes:
-  - url: /docs/privacy-overview/
+  - url: /docs/privacy/overview/
     title: Overview of Privacy Transactions
-  - url: /docs/make-privacy-transaction/
+  - url: /docs/privacy/transaction/
     title: Make a Privacy Transaction
 
 - title: Create your first Wanchain application
   nodes:
-  - url: /docs/starting-your-dapp/
+  - url: /docs/create-application/introduction/
     title: Introduction to creating a Wanchain Dapp
-  - url: /docs/using-wanmask/
+  - url: /docs/create-application/using-wanmask/
     title: Using WanMask in a Dapp
 
 - title: Porting applications
   nodes:
-  - url: /docs/introduction-to-porting/
+  - url: /docs/porting/introduction/
     title: Introduction to porting applications
-  - url: /docs/porting-ethereumjs/
+  - url: /docs/porting/ethereumjs/
     title: Porting an EthereumJS application
-  - url: /docs/porting-ethjs/
+  - url: /docs/porting/ethjs/
     title: Porting an EthJS application
-  - url: /docs/porting-web3/
+  - url: /docs/porting/web3/
     title: Porting an WanJS application
-  - url: /docs/porting-other/
+  - url: /docs/porting/other/
     title: Porting other applications
 
 - title: Using the documentation

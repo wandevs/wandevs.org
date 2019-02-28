@@ -1,6 +1,7 @@
 ---
 layout: page
-title: How to migrate an existing dApp
+author: tyrion70
+title: Introduction to migration
 ---
 This article covers the steps to migrate a dApp to Wanchain
 
