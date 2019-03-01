@@ -37,11 +37,11 @@ are not the same person some information will have to be shared between the
 two: in particular, the `x` value used in the initial lock request.
 
 The `lock` involves a user sending funds to a particular smart contract or lock
-address, on either Wanchain or the original chain, depending on whether the
+address on either Wanchain or the original chain, depending on whether the
 transaction is inbound or outbound from Wanchain.
 
 The `redeem` involves a user calling a contract to have coin transferred to the
-user's account, or the user spending the coins from the locking address.
+user's account, or the user spending the coins directly from the locking address.
 
 Once a cross-chain transaction is initiated, the redeemer must recover the
 coins or tokens before a certain period of time before the transaction expires.
