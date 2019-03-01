@@ -3,20 +3,23 @@ layout: page
 title: ERC20 Token Integration
 ---
 
-## Overview
+In addition to the Ethereum integration, the Wanchain cross-chain feature
+supports a selection of ERC20 tokens on the Ethereum network. This means that
+users can use the Wanchain multi-party computing Storeman solution to convert
+an ERC20 token on Ethereum to the corresponding WRC20 token on Wanchain, as
+well as convert the token on Wanchain back to native token on Ethereum.
 
-In addition to the Ether integration, the Wanchain cross-chain feature supports
-a selection of ERC20 tokens on the Ethereum network. This means that users can
-use the Wanchain multi-party computing Storeman solution to convert an ERC20
-token on Ethereum to the corresponding WRC20 token on Wanchain, as well as
-convert the token on Wanchain back to native token on Ethereum.
+## Inbound Transactions
 
 For the ERC20 integration, the steps required for an inbound cross-chain
 transaction, are basically the same as for Ethereum, except that there is an
 additional initial step, which approves the token to be transfered by the
 cross-chain smart contract.
 
+![ERC20 Inbound](/img/erc20_inbound.png)
+
 #### Steps for Inbound ERC20 Cross-chain Transaction
+
 1. Make a transaction on Ethereum that approves the token to be transfered by
    the cross-chain contract.
 2. Make a transaction on Ethereum that locks funds with the cross-chain smart
@@ -35,11 +38,15 @@ until expiration for ERC20 tokens), then the transaction will move to a
 the token, and the sender will have to make a `Revoke` call to get the locked
 ETH back.
 
+## Outbound Transactions
+
 The steps for outbound transactions are similar to the steps for inbound
-transactions, though with a couple small differences. For ERC20, the steps for
-outbound transactions are:
+transactions, though with a couple small differences.
+
+![ERC20 Outbound](/img/erc20_outbound.png)
 
 #### Steps for Outbound ERC20 Cross-chain Transaction
+
 1. Make a transaction on Wanchain that approves the token to be transfered by
    the cross-chain contract.
 1. Make a transaction on Wanchain that locks the tokens and that includes the

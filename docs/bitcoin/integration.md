@@ -3,25 +3,25 @@ layout: page
 title: Bitcoin Integration
 ---
 
-## Overview
-
 The Wanchain cross-chain feature currently includes mainnet and testnet
 connections with the Bitcoin network. This means that users can use the Wanchain
 multi-party computing Storeman solution to convert BTC coin on Bitcoin to wBTC
 (Wanchain BTC token) on the Wanchain network, as well as convert the Wanchain
 token back to native BTC.
 
-For the Bitcoin integration, the steps required for an inbound cross-chain
-transaction are as follows:
+## Inbound Transactions
+
+![Bitcoin Inbound](/img/bitcoin_inbound.png)
 
 #### Steps for Inbound Bitcoin Cross-chain Transaction
+
 1. Make a Bitcoin transaction that locks funds in a user-generated timelock
    P2SH address with a specific redeemScript.
 2. Make a contract call on Wanchain to announce the locked funds.
 3. Wait for a followup contract call on Wanchain from the Storeman group that
    confirms the lock.
 4. Make a smart contract call on Wanchain to redeem the token.
-5. Wait for a followup contract call on Bitcoin from the Storeman group that
+5. Wait for a followup contract call on Wanchain from the Storeman group that
    finalizes the transfer.
 
 Whereas for inbound Ethereum transactions the first step is a single lock call
@@ -42,25 +42,26 @@ within 36 hours, then the transaction will move to a "Revoked" state. If that
 happens, the redeemer will no longer be able to redeem the token, and the
 sender will have to make a `Revoke` call to get the locked BTC back.
 
+## Outbound Transactions
+
 The steps for outbound transactions are similar to the steps for inbound
-transactions, though with a few minor differences. For Bitcoin, the steps
-for outbound transactions are instead:
+transactions, though with a few minor differences.
+
+![Bitcoin Outbound](/img/bitcoin_outbound.png)
 
 #### Steps for Outbound Bitcoin Cross-chain Transaction
+
 1. Make a transaction on Wanchain that locks the tokens and that includes the
    outbound fee in WAN.
 2. Wait for a followup contract call on Bitcoin from the Storeman group that
    confirms the lock, and that announces the P2SH address where the funds are
    locked, as well as the id of the transaction that funded the address.
 3. Redeem the BTC from the P2SH address, signing the transaction with the
-   pubkey of the address provided in the initial lock call in step 1.
+   pubkey of the address provided in the initial lock call.
+4. Wait for a followup contract call on Wanchain from the Storeman group that
+   finalizes the transfer.
 
-When by the third step the BTC are redeemed, we can be certain that the
-transaction is complete. Accordingly, for outbound Bitcoin transactions, there
-is no need to listen for a final followup contract call from the Storeman
-group.
-
-Also, like with inbound transactions, if the outbound redeemer does not redeem
+Like with inbound transactions, if the outbound redeemer does not redeem
 within the time of the timelock defined in the P2SH address, then the BTC will
 no longer be redeemable. The Storeman group will reclaim the BTC and the
 transaction will go into a "Revoked" state. In that case the `Revoke` call must

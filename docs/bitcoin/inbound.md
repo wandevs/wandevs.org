@@ -89,13 +89,17 @@ async function sendRawWanTx(web3, rawTx, fromAccount, privateKey) {
 ```
 
 The `sendBtc` function creates a funded raw transaction with the change address
-in the second output. ().
+in the second output.
 
 <div class="alert alert-info">
   <b>Note</b>: For Storeman groups, a Bitcoin lock transaction is valid only if
   the output that funds the P2SH address is the first output in the
   transaction.
 </div>
+
+The `sendRawWanTx` function adds the account's next nonce to the transaction
+object, signs the transaction with the provided private key, and then sends the
+transaction to the network.
 
 ## Make the transaction
 
@@ -251,7 +255,7 @@ Let's go ahead and define the functions for these five steps.
 ```js
 async function lockBitcoin() {
 
-  // Step 1: generate a new P2SH lock address and send bitcoin to it	
+  // Step 1: generate a new P2SH lock address and send bitcoin to it
 
   // Create new P2SH lock address
   const contract = cctx.buildHashTimeLockContract(opts);
