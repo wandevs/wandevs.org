@@ -332,6 +332,13 @@ storeman (`listenLock`). After the Storeman group confirms the lock, it sends a
 redeem call on Wanchain. And then finally, it waits for the Storeman group to
 confirm the redeem.
 
+<div class="alert alert-info">
+  <b>Note</b>: the <code>confirmRedeem</code> function call is technically not
+  needed, since the Wanchain token are sent to the recipient's account once the
+  <code>sendRedeem</code> succeeds. The example adds the final step only for
+  completeness.
+</div>
+
 If everything went well, the Wanchain account used in the `opts` should now
 have 0.0021 Bitcoin token. The token is a WRC-20 token, so you can make
 the usual token contract calls, such as `balanceOf`, `transfer`,

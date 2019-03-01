@@ -315,6 +315,13 @@ If you don't want to rely on WanX to listen for those transactions, you can
 alternatively use `buildLockScanOpts` and `buildRedeemScanOpts` to get the
 parameters for the scan, and then make your own subscribe call to the network.
 
+<div class="alert alert-info">
+  <b>Note</b>: the <code>confirmRedeem</code> function call is technically not
+  needed, since the Wanchain token are sent to the recipient's account once the
+  <code>sendRedeem</code> succeeds. The example adds the final step only for
+  completeness.
+</div>
+
 With all of these functions in place, we can now run our script.
 
 ```bash

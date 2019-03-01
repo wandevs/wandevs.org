@@ -176,6 +176,13 @@ to attach it to the `opts` object before passing the `opts` into the
 `buildLockTx` method. Otherwise, as mentioned, the only other change is that
 the chains are reversed in respect to the inbound version.
 
+<div class="alert alert-info">
+  <b>Note</b>: the <code>confirmRedeem</code> function call is technically not
+  needed, since the token are sent to the recipient's account once the
+  <code>sendRedeem</code> succeeds. The example adds the final step only for
+  completeness.
+</div>
+
 That's it. Go ahead and run the script.
 
 ```bash
