@@ -44,7 +44,7 @@ while we can see transactions that lock funds into the privacy contract, and
 other transactions that redeem funds from the privacy contract, we cannot link
 any lock and redeem transactions by anything other than value.
 
-## Allowed Transaction Amounts
+### Allowed Transaction Amounts
 
 Hypothetically, if a user were to lock 427 WAN into the privacy smart contract,
 and then soon after another user were to redeem 427 WAN from the contract, it
