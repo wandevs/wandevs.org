@@ -299,3 +299,6 @@ a.active ~ .sidebar-nav-sublist {
   padding: .45rem 1.25rem;
   margin-bottom: 0px;
 }
+.gitter-chat-embed {
+  border-left: 1px solid #aaa;
+}

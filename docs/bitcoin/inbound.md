@@ -92,9 +92,10 @@ The `sendBtc` function creates a funded raw transaction with the change address
 in the second output.
 
 <div class="alert alert-info">
-  <b>Note</b>: For Storeman groups, a Bitcoin lock transaction is valid only if
-  the output that funds the P2SH address is the first output in the
-  transaction.
+  <b>Note</b>: a Bitcoin lock transaction is considered valid by Storeman group
+  nodes only if the output that funds the P2SH address is the first output (0)
+  in the transaction. Any change address outputs should come after the initial
+  funding output.
 </div>
 
 The `sendRawWanTx` function adds the account's next nonce to the transaction

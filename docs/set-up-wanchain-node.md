@@ -4,11 +4,10 @@ title: Set up a Wanchain Node
 ---
 
 To be able to access the Wanchain network from your program, you need to have
-access to a running Wanchain gwan node with RPC enabled.
-
-The install steps below overall include getting gwan, running gwan with the correct
-options, and testing that you can connect to the node via RPC by starting the
-console.
+access to a running Wanchain gwan node with RPC enabled. The overview below
+covers a few of the ways to get gwan, plus how to start gwan with the required
+options, as well as how to check that you are able to make an RPC connection to
+the node.
 
 ## Install gwan
 
