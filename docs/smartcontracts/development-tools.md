@@ -1,4 +1,8 @@
-## Developement Tools 
+
+---
+layout: page
+title: Developement Tools 
+---
 ### Developer Smart Contracts
 #### Smart Contract Languages
 * [Solidity](http://solidity.readthedocs.io/en/latest/)- EVM smart contracting language
