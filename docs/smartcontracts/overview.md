@@ -1,4 +1,8 @@
-# Smart Contracts Overview
+---
+layout: page
+title: Smart Contracts Overview
+---
+
 
 Smart contracts are autonomous agents deployed on a blockchain which will execute code and actions depending on given conditions. 
 
