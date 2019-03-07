@@ -9,6 +9,8 @@ Wanchain node and the Wanchain network, intended to be used for testing or
 making simple manual transactions. The console can be very useful when
 developing as it gives you a way to quickly make one-off commands.
 
+## Open a Console
+
 There are two ways to start up a console: either start `gwan` with the
 `console` option, or use the `attach` command to attach to an already existing
 node.
@@ -41,4 +43,33 @@ Alternatively, you can connect by passing the address and port of the host.
 
 ```bash
 $ ./gwan attach http://127.0.0.1:8545
+```
+
+## Using the console
+
+The console can be used to issue many different commands, including getting the
+balance of an account, sending a transaction, and getting a transaction
+receipt. Wanchain includes all of the available
+[Ethereum commands](https://github.com/ethereum/wiki/wiki/JavaScript-API), as
+well the add command set described
+[here](https://github.com/wanchain/wanchain-util/blob/master/web3_wan.js).
+
+Below lists just a few of the more common usages.
+
+#### Show sync status
+```
+> eth.syncing
+```
+
+#### Get account and balance
+```
+> eth.accounts
+["abc123..."]
+> web3.fromWin(eth.getBalance(eth.accounts[0]))
+12.125
+```
+
+#### Unlock an account
+```
+> personal.unlockAccount(eth.accounts[0], '<password>', 999)
 ```
