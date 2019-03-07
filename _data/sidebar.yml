@@ -5,19 +5,19 @@
   - url: /docs/wanchain-overview/
     title: Overview of Wanchain
   - url: /docs/difference-between-wanchain-and-ethereum/
-    title: Difference between Wanchain and Ethereum
+    title: Wanchain vs. Ethereum
   - url: /docs/set-up-wanchain-node/
     title: Set up Wanchain Node
   - url: /docs/using-the-console/
     title: Using the console
   - url: /docs/create-wanchain-account/
-    title: Creating an Account
+    title: Create an Account
   - url: /docs/send-transaction/
     title: Send a Transaction
   - url: /docs/using-development-network/
-    title: Using the development network
+    title: Using the Development Network
   - url: /docs/set-up-wanchain-private-testnet/
-    title: Create a private testnet
+    title: Create a Private Testnet
 
 - title: Smart Contracts
   nodes:
