@@ -5,10 +5,9 @@ author: tyrion70
 ---
 
 The console is a simple command line interface for interacting with your
-Wanchain node and the Wanchain network. The console is intended to only be used
-for testing or making simple manual transactions. That is, a Dapp would not
-interact with the Wanchain node through the console, but instead would use an
-RPC interface. Nevertheless, the console can be very useful for development.
+Wanchain node and the Wanchain network, intended to be used for testing or
+making simple manual transactions. The console can be very useful when
+developing as it gives you a way to quickly make one-off commands.
 
 There are two ways to start up a console: either start `gwan` with the
 `console` option, or use the `attach` command to attach to an already existing
