@@ -13,7 +13,7 @@ These features, and the need to make Wanchain distinct from Ethereum, required
 a couple changes in the core stucture that developers need to take into
 consideration.
 
-### New Txtype field in Transaction
+### Txtype Field Added to Transaction
 
 To facilitate privcacy transactions a new field has been inserted in the transaction format called `Txtype`. This field can currently contain two values:
 
@@ -22,7 +22,7 @@ To facilitate privcacy transactions a new field has been inserted in the transac
 
 This change, although quite small, has a big impact on libraries that create transations.
 
-### Change in address checksum
+### Change in Address Checksum
 
 The checksum of an Ethereum address was introduced by Vitalik in [EIP-55](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md).
 To minimize the risk of collisions between Ethereum and Wanchain addresses, the checksum was changed. This ensures that when using checksummed addresses the changes of accidentally using a Wanchain address on Ethereum and vice versa is minimized.
@@ -70,7 +70,7 @@ exports.toChecksumAddress = function (address) {
 
 So basically convert the address to hex, but if the ith digit is a letter (ie. it's one of abcdef) print it in lowercase if the 4\*ith bit of the hash of the lowercase hexadecimal address is 1 otherwise print it in uppercase.
 
-### Change in wallet keyfile
+### Change in Wallet Keyfile
 
 The wallet file for Wanchain is different from an Ethereum wallet.
 
@@ -141,4 +141,4 @@ The wallet file for Wanchain is different from an Ethereum wallet.
 }
 ```
 
-As you can see above there is another object called crypto2 as well as a waddress entry. The waddress is your private address and the crypto2 object contains the second private key needed to create the one-time addresses associated with the privacy transactions. The wallet is backwards compatible with Ethereum though, so you could use a Wanchain wallet on both Ethereum and Wanchain.
+As you can see above there is another object called `crypto2` as well as a `waddress` entry. The `waddress` is your private address and the `crypto2` object contains the second private key needed to create the one-time addresses associated with the privacy transactions. The wallet is backwards compatible with Ethereum though, so you could use a Wanchain wallet on both Ethereum and Wanchain.

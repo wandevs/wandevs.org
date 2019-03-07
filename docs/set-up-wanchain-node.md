@@ -11,6 +11,9 @@ the node.
 
 ## Install gwan
 
+There are a few ways to get the `gwan` binary. Either you can use the binary
+from the wallet, download the binary, or build the binary yourself.
+
 #### Option 1 - Use WanWallet gwan
 
 The gwan node that runs when the WanWallet GUI wallet is open does not have RPC
