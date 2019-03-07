@@ -9,10 +9,9 @@ structure and features as Ethereum. However, Wanchain add two new key features.
 * Wanchain supports cross-chain transactions
 * Wanchain supports privacy transactions
 
-These features, and the need to make Wanchain distinct from Ethereum,
-required a couple changes in the core stucture that developers need to take
-into consideration: the addition of a `Txtype` field in the transaction object,
-and a change to the account address checksum.
+These features, and the need to make Wanchain distinct from Ethereum, required
+a couple changes in the core stucture that developers need to take into
+consideration.
 
 ### New Txtype field in Transaction
 
