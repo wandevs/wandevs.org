@@ -6,16 +6,14 @@
     title: Overview of Wanchain
   - url: /docs/difference-between-wanchain-and-ethereum/
     title: Difference between Wanchain and Ethereum
-  - url: /docs/license/
-    title: License information
   - url: /docs/set-up-wanchain-node/
     title: Set up Wanchain Node
+  - url: /docs/using-the-console/
+    title: Using the console
   - url: /docs/create-wanchain-account/
     title: Creating an Account
   - url: /docs/send-transaction/
     title: Send a Transaction
-  - url: /docs/using-the-console/
-    title: Using the console
   - url: /docs/using-development-network/
     title: Using the development network
   - url: /docs/set-up-wanchain-private-testnet/
