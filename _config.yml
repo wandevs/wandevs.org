@@ -4,11 +4,10 @@ highlighter: rouge
 # Permalinks
 permalink: pretty
 
-url: https://wandevs.net
-owner: wandevs.net
+url: https://wandevs.org
+owner: wandevs.org
 
 version: 0.1.0
 
 github:
  repo: https://github.com/wandevs
-
