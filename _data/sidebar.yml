@@ -93,7 +93,7 @@
   - url: /docs/porting/other/
     title: Porting other applications
 
-- title: Advanced Topics
+- title: Local Networks
   nodes:
   - url: /docs/using-development-network/
     title: Using the Development Network
