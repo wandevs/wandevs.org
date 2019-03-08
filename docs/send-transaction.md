@@ -4,26 +4,64 @@ author: tyrion70
 title: Send a Transaction
 ---
 
-This document describes how to send a transaction for Wanchain programmatically:
+With a Wanchain created, we are ready to received funds and make transactions. Before any transactions can be made, you'll need to acquire some coins. If you do not have any already, you can get some testnet coins from the [Wanchain Faucet](https://faucet1.wanchain.org).
 
-### Console
-To simply send a transaction using the console use this command:
+Now with coins in hand, let's make some transactions.
+
+### At the Console
+
+A simple way to send a one-off transaction is by issuing the `sendTransaction`
+command in the console. Note that to do this you will initially need to unlock
+the sending account, with the `personal.unlockAccount()` command.
 
 ```js
-web3.eth.sendTransaction({
-       from: "0x68489694189aa9081567dfc6d74a08c0c21d92c6",
-       to: "0x184bfe537380d650533846c8c7e2a80d75acee63",
-       value: 1000000000000000,
-   }, function(err, transactionHash) {
+> var from = eth.accounts[0]
+> var to = "0x184bfe537380d650533846c8c7e2a80d75acee63"
+> var value = web3.toWei('1')
+> web3.eth.sendTransaction({
+       from: from,
+       to: to,
+       value: value,
+   }, function(err, txHash) {
        if (err) {
            console.log(err);
        } else {
-           console.log(transactionHash);
+           console.log(txHash);
        }
    });
 ```
 
-### Wanchainjs-tx
+### Web3 with Unlocked Account
+
+The code run in the console could be extracted and run as a separate script. An
+early-stage Dapp might take this approach at first since it allows programs to
+interact with the network without the overhead of key management.
+
+**send-tx.js**
+```js
+const web3 = require('web3');
+
+const from = '0x68489694189aa9081567dfc6d74a08c0c21d92c6';
+const to = '0x184bfe537380d650533846c8c7e2a80d75acee63';
+const value = '1000000000000000000';
+
+web3.eth.sendTransaction({ from, to, value }).then(receipt => {
+  console.log(receipt);
+}).catch(err => {
+  console.log(err);
+});
+```
+
+Now we can run this from the command line with the following.
+
+```bash
+$ node send-tx.js
+```
+
+### Sign with Wanchainjs-tx
+
+It's generally not a good idea to interact with an unlocked account. Instead, for interactions with a specific non-user account, you should access the private key independently and sign the transaction with the key before sending it to the network. One library that helps with transaction signing is `Wanchainjs-tx`.
+
 <div id="runkit-element" class="runkit-element">
 <code></code>
 <code>
@@ -43,11 +81,16 @@ const txParams = {
   chainId: 99
 }
 
+// sign the transaction
 const tx = new WanchainTx(txParams)
 tx.sign(privateKey)
 console.log(tx.getSenderAddress().toString('hex'))
+
+// get the serialized signed transaction
 const serializedTx = tx.serialize().toString('hex')
 console.log(serializedTx)
+
+// send the signed transaction to the network
 web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'))
 .on('receipt', console.log);
 </code>
