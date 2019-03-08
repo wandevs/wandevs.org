@@ -14,10 +14,6 @@
     title: Create an Account
   - url: /docs/send-transaction/
     title: Send a Transaction
-  - url: /docs/using-development-network/
-    title: Using the Development Network
-  - url: /docs/set-up-wanchain-private-testnet/
-    title: Create a Private Testnet
 
 - title: Smart Contracts
   nodes:
@@ -96,6 +92,13 @@
     title: Porting an WanJS application
   - url: /docs/porting/other/
     title: Porting other applications
+
+- title: Advanced Topics
+  nodes:
+  - url: /docs/using-development-network/
+    title: Using the Development Network
+  - url: /docs/set-up-wanchain-private-testnet/
+    title: Create a Private Testnet
 
 - title: Using the documentation
   nodes:
