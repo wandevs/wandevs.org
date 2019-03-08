@@ -39,7 +39,8 @@ interact with the network without the overhead of key management.
 
 **send-tx.js**
 ```js
-const web3 = require('web3');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:18545'));
 
 const from = '0x68489694189aa9081567dfc6d74a08c0c21d92c6';
 const to = '0x184bfe537380d650533846c8c7e2a80d75acee63';
@@ -65,9 +66,10 @@ It's generally not a good idea to interact with an unlocked account. Instead, fo
 <div id="runkit-element" class="runkit-element">
 <code></code>
 <code>
-const web3 = require('wan3')
+const Web3 = require('web3')
 const WanchainTx = require('wanchainjs-tx')
 const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
+const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:18545'));
 
 const txParams = {
   Txtype: '0x01',

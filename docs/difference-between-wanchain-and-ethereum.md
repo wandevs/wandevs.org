@@ -4,14 +4,15 @@ title: Differences between Wanchain and Ethereum
 ---
 
 Since Wanchain started as a fork of Ethereum, it shares much of the same
-structure and features as Ethereum. However, Wanchain add two new key features.
+structure and features as Ethereum. However, Wanchain adds two new key
+features.
 
 * Wanchain supports cross-chain transactions
 * Wanchain supports privacy transactions
 
 These features, and the need to make Wanchain distinct from Ethereum, required
 a couple changes in the core stucture that developers need to take into
-consideration.
+consideration when building Dapps.
 
 ### Txtype Field Added to Transaction
 
