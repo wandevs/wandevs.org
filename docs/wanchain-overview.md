@@ -44,3 +44,25 @@ Wanchain provides a privacy smart contract built into the protocol that uses rin
 #### Cross-chain Transactions
 
 Wanchain also provides a mechanism to convert digital assets on specific chains (currently Bitcoin, Ethereum and selecct ERC20 tokens) to representative tokens on the Wanchain network. For each asset that is integrated into Wanchain, there is a corresponding WRC20 token on Wanchain that can be traded and transacted, and eventually converted back to the original digital asset at a 1:1 exchange rate. The conversions of the assets to tokens (and vice versa), also known as cross-chain transactions, are handled by Storeman group nodes, which rely on multi-party computing to ensure that funds remain safe and that bad actors cannot steal funds.
+
+## Interacting with Wanchain
+
+Naturally, your Dapp will need to interact with the Wanchain network, and possibly the Ethereum and Bitcoin networks. There are two main approaches to this: have your Dapp communicate directly with Wanchain nodes, using `web3` or another similar interface, or have your Dapp communicate with iWan, an open RPC server hosted by the Wanchain Foundation, which in turn will handle the communications with the various blockchain networks for you.
+
+#### Working Directly with Wanchain
+
+There are several available client interfaces for the Wanchain network. In this documentation, the examples use the Javascript `web3` and `wan3` packages to communicate directly with Wanchain nodes.
+
+Javascript:
+  * [web3](https://www.npmjs.com/package/web3)
+  * [wan3](https://www.npmjs.com/package/wan3)
+
+Golang:
+  * [go-wanchain](https://github.com/wanchain/go-wanchain)
+
+#### Working with iWan
+
+Another option is to have your Dapp communicate with `iWan`, which has its own [API](https://wanchain.github.io/iWan-js-sdk/). For some this can be a good option since it bundles all of Wanchain's functionality into a single interface. Currently, however, there is only a Javascript client for `iWan`. Also, `iWan` is only suitable for backend use and cannot be used on the client, as it would require a cross-site websockets connection.
+
+Javascript:
+  * [iWan-js-sdk](https://github.com/wanchain/iWan-js-sdk)
