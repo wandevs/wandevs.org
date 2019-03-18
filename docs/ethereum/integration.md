@@ -62,11 +62,11 @@ sender to get the locked WETH back.
 
 ## Connecting to Ethereum
 
-To conduct cross-chain transactions from Ethereum into Wanchain, we will need
-to be able to connect to the Ethereum network, both to send transactions and to
-listen for contract events. The mainnet integration connects to Ethereum
-mainnet, naturally, and the testnet integration connects with the Rinkeby
-network.
+In the following examples we will use `wanx` to make cross-chain transactions,
+which requires that we have a connection to the Ethereum network, for both
+sending transactions and listening for contract events. For the mainnet
+integration we will need to connect to the Ethereum mainnet, naturally, and for
+the testnet integration we will need to connect with the Rinkeby network.
 
 Running an Ethereum comes with its own challenges, which we will not cover
 here. While you can run your own Ethereum node, for the examples below we will

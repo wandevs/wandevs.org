@@ -69,12 +69,12 @@ be made by the sender to get the locked token back.
 
 ## Connecting to Bitcoin
 
-To be able to make a cross-chain transaction programmatically, you will need to
-have access to a Bitcoin full node with RPC and transaction indexing enabled.
-If you not have access to a Bitcoin node already, follow the steps below to get
-one set up. If you do already have a Bitcoin node, just make sure it is
-configured with the all the items in the example `bitcoin.conf` file shown
-below.
+In the following examples we will use `wanx` to make cross-chain transactions,
+which requires that we have access to a Bitcoin full node with RPC and
+transaction indexing enabled.  If you not have access to a Bitcoin node
+already, follow the steps below to get one set up. If you do already have a
+Bitcoin node, just make sure it is configured with the all the items in the
+example `bitcoin.conf` file shown below.
 
 ### Install bitcoind
 
