@@ -76,7 +76,7 @@
 - title: Create your first Wanchain application
   nodes:
   - url: /docs/create-application/introduction/
-    title: Introduction to creating a Wanchain Dapp
+    title: Introduction
   - url: /docs/create-application/using-wanmask/
     title: Using WanMask in a Dapp
 
@@ -84,14 +84,15 @@
   nodes:
   - url: /docs/porting/introduction/
     title: Introduction to porting applications
-  - url: /docs/porting/ethereumjs/
-    title: Porting an EthereumJS application
-  - url: /docs/porting/ethjs/
-    title: Porting an EthJS application
-  - url: /docs/porting/web3/
-    title: Porting an WanJS application
-  - url: /docs/porting/other/
-    title: Porting other applications
+# Don't add these yet
+#  - url: /docs/porting/ethereumjs/
+#    title: Porting an EthereumJS application
+#  - url: /docs/porting/ethjs/
+#    title: Porting an EthJS application
+#  - url: /docs/porting/web3/
+#    title: Porting an WanJS application
+#  - url: /docs/porting/other/
+#    title: Porting other applications
 
 - title: Local Networks
   nodes:
