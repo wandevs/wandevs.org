@@ -4,12 +4,12 @@ title: Contribution Guide
 ---
 1. Click on fork in top right hand corner
 ![Fork on github](/img/github_fork_repo.png)
-2. The Wiki will be cloned in your own repo, you will be redirected to https://github.com/your_handle/awesome-wanchain
+2. The Wiki will be cloned in your own repo, you will be redirected to https://github.com/your_handle/website
 3. From here you can edit a page directly by clicking on a file and edit it 
 ![Edit on github](/img/github_edit_button.png)
 4. Once you are done editing, describe and commit your changes in your master branch
 ![Commit on github](/img/github_commit_changes.png)
-5. You will now be able to submit a Pull Request (PR) to the awesome-wanchain repo.
+5. You will now be able to submit a Pull Request (PR) to the website repo.
 ![Pull request on github](/img/github_pull_request.png) 
 6. Click on the Pull Requests and then on the New Pull Request button
 ![Create pull request on github](/img/github_create_pull_request.png) 
