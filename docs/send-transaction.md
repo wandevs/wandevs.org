@@ -89,11 +89,55 @@ tx.sign(privateKey)
 console.log(tx.getSenderAddress().toString('hex'))
 
 // get the serialized signed transaction
-const serializedTx = tx.serialize().toString('hex')
+const serializedTx = '0x' + tx.serialize().toString('hex')
 console.log(serializedTx)
 
 // send the signed transaction to the network
-web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'))
+web3.eth.sendSignedTransaction(serializedTx)
 .on('receipt', console.log);
 </code>
 </div>
+
+### Send through iWan
+
+If you are using `iWan`, Wanchain's hosted solution, you can use the Javascript SDK to send a transaction.
+
+```js
+const iWanClient = require('iwan-sdk');
+const WanchainTx = require('wanchainjs-tx')
+
+const apiClient = new iWanClient('YourApiKey', 'YourSecretKey');
+const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
+
+const txParams = {
+  Txtype: '0x01',
+  nonce: '0x00',
+  gasPrice: '0x2a600b9c00',
+  gasLimit: '0x5208',
+  to: '0x68489694189Aa9081567dFc6D74A08c0c21D92c6',
+  value: '100000000000000000',
+  data: '0x0',
+  // EIP 155 chainId - mainnet: 1, testnet: 3, privatenet: 99, devnet: 1337
+  chainId: 99
+}
+
+// sign the transaction
+const tx = new WanchainTx(txParams)
+tx.sign(privateKey)
+console.log(tx.getSenderAddress().toString('hex'))
+
+// get the serialized signed transaction
+const serializedTx = '0x' + tx.serialize().toString('hex')
+console.log(serializedTx)
+
+apiClient.sendRawTransaction('WAN', serializedTx, (err, receipt) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(receipt);
+  }
+
+  // make sure to close when you are done
+  apiClient.close();
+});
+```
