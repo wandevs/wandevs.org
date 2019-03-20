@@ -12,7 +12,7 @@ Welcome to WanDevs, the community powering the growth of cross-blockchain techno
 
 1.	Sign up for our Gitter Community <a href="https://gitter.im/wandevs/community" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">here</a> or click the Open Chat button in the bottom-right of your screen, and introduce yourself to the team.
 2.	Please fill out <a href="https://goo.gl/forms/EKfezdardvMldK0u2" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">this welcome form</a>.
-3.	Contact <a href=mailto:oliver@wanchain.org>Oliver</a> to collect your 100 WAN sign-up gift (requires verification of an active Github)
+3.	Contact [Oliver](mailto:oliver@wanchain.org) to collect your 100 WAN sign-up gift (requires verification of an active Github)
 4.	Invite other blockchain developers in your network to join WanDevs (50 WAN referral gift for up to 10 referrals). Referral gift will be given when a new developer joins the Gitter, completes the welcome form, lists you in the “referred by” box, and has been confirmed to have an active Github account.
 
 ### Start Building
