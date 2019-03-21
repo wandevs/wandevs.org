@@ -2,7 +2,7 @@
 layout: page
 title: 
 ---
-<img src="/img/wandevs.jpeg" alt="Logo" height="140"/>
+<center><img src="/img/wandevs.jpeg" alt="Logo" height="140"/></center>
 
 ### Welcome
 
