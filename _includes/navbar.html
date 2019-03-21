@@ -1,12 +1,48 @@
-<nav class="navbar fixed-top bg-dark justify-content-between">
+<nav class="navbar navbar-expand-lg fixed-top bg-dark justify-content-between">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-align-justify"></i>
+  </button>
+
   <div class="navbar-header">
     <a class="navbar-brand text-white" href="/">
       Wanchain Developer Portal
     </a>
   </div>
+
   <div class="nav-item">
     <a class="" href="{{ site.github.repo }}" target="_blank">
       <i class="fa fa-github"></i> GitHub
     </a>
   </div>
+
+  <div class="mobile-menu">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% assign sidebar_sections = site.data.sidebar %}
+        {% for section in sidebar_sections  %}
+          <li class="nav-item">
+            {{ section.title }}
+          </li>
+          {% for node in section.nodes %}
+          {% if node.title != null %}
+            <li class="nav-item{% if page.url == node.url %} active{% endif %}">
+              <a class="nav-link" href="{{ node.url }}">{{ node.title }}</a>
+            </li>
+            {% if node.subsections != null %}
+              {% for subsection in node.subsections %}
+              {% if subsection.title != null %}
+                <li class="nav-item{% if page.url == subsection.url %} active{% endif %}">
+                  <a class="nav-link" href="{{ subsection.url }}">{{ subsection.title }}</a>
+                </li>
+              {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
 </nav>

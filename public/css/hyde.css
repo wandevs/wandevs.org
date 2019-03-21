@@ -54,11 +54,10 @@ html {
  */
 
 .sidebar {
-  text-align: center;
   padding: 1rem 1rem;
   color: rgba(255,255,255,.5);
   background-color: #202327;
-  /* background-color: #202020; */
+  display: none;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -69,6 +68,15 @@ html {
     width: 24rem;
     text-align: left;
     overflow-y: scroll;
+    display: inline-block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .nav-link {
+    padding: .25rem 1rem;
   }
 }
 
@@ -164,6 +172,13 @@ a.active ~ .sidebar-nav-sublist {
 .content {
   padding-top:    6rem;
   padding-bottom: 4rem;
+}
+
+@media (min-width: 1em) {
+  .content {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
 }
 
 @media (min-width: 48em) {
@@ -289,7 +304,7 @@ a.active ~ .sidebar-nav-sublist {
   color: #8f5536;
 }
 
-.navbar a {
+.navbar a, .navbar i {
   color: #fff;
 }
 .navbar a:hover {
