@@ -53,6 +53,10 @@ html {
  * out above content in mobile and later moves to the side with wider viewports.
  */
 
+.mobile-menu {
+  width: 100%;
+}
+
 .sidebar {
   padding: 1rem 1rem;
   color: rgba(255,255,255,.5);
@@ -78,6 +82,11 @@ html {
   .nav-link {
     padding: .25rem 1rem;
   }
+}
+
+#navbarSupportedContent {
+  overflow-y: scroll !important;
+  max-height: 400px !important;
 }
 
 /* Sidebar links */
