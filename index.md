@@ -1,50 +1,47 @@
 ---
 layout: page
-title: Introduction
+title: 
 ---
-## What you'll learn
+<center><img src="/img/wandevs.jpeg" alt="Logo" height="140"/></center>
 
-- How to quickly spin up a node
-- Manage wallets and keys
-- Create Accounts
-- Write some contracts
-- Compile a contract
-- Deploy a contract
-- Integrate cross chain in a Dapp
-- Integrate privacy in a Dapp
+### Welcome
 
-## Solidity Experience
+Welcome to WanDevs, the community powering the growth of cross-blockchain technology. WanDevs is a community of blockchain developers who seek to educate, advocate, build, and grow cross-blockchain technology powered by Wanchain. The community is supported by the Wanchain Foundation in that the Foundation will provide ongoing support to developers, as well as the opportunity for financial support for excellent dApps or tools that emerge from the community.
 
-Solidity is a statically-typed programming language designed for developing smart contracts that run on the EVM. Solidity is compiled to bytecode that is executable on the EVM. With Solidity, developers are able to write applications that implement self-enforcing business logic embodied in smart contracts.
+### Getting Started
 
-Solidity shares many similariliraties with Javascript and is considered an easy and quick language to grasp. Currently most decentralized applications that have been deployed utilize Solidity and we expect this trend to continue. Below we provide a list of third party resources which can help in your quest to learn this language
+1.	Sign up for our Gitter Community <a href="https://gitter.im/wandevs/community" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">here</a> or click the Open Chat button in the bottom-right of your screen, and introduce yourself to the team.
+2.	Please fill out <a href="https://goo.gl/forms/EKfezdardvMldK0u2" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">this welcome form</a>.
+3.	Contact [Oliver](mailto:oliver@wanchain.org) to collect your 100 WAN sign-up gift (requires verification of an active Github)
+4.	Invite other blockchain developers in your network to join WanDevs (50 WAN referral gift for up to 10 referrals). Referral gift will be given when a new developer joins the Gitter, completes the welcome form, lists you in the “referred by” box, and has been confirmed to have an active Github account.
 
-- [CryptoZombies](https://cryptozombies.io) - Interactive code school that teaches you to write smart contracts through building your own crypto-collectables game.
-- [EthereumDev.io](https://ethereumdev.io) - Complete tutorial from starting to writing complex smart contracts and DApps.
-- [LearnXInY](https://learnxinyminutes.com/docs/solidity/) - Learn Solidity in 15 mins (for experienced devs).
-- [Syntax cheat sheet](https://topmonks.github.io/solidity_quick_ref/) - Quick syntax overview.
+### Start Building
+There are many opportunities to contribute to the WanDevs community. The projects below are examples of some of the highest priority needs. Bounties will vary on a case-by-case basis, so please reach out to us to discuss in advance of starting a project.
 
+- Check and review documentation
 
-## Command Line Knowledge
+  This site contains examples to start building your dApp. Please review the documentation and check the contribution page to see how you can contribute.
 
-There are a variety of tools provided in this course which require a basic knowledge of command in order to interact with them. If you have no previous knowledge there please follow the links below.
-#### For Mac
-[Conquering the Command Line](https://medium.freecodecamp.org/conquering-the-command-line-f85f5e46c07c) - FreeCodeCamp Medium article by Monica Powell
-#### For Linux
-[A beginner’s guide to Linux command-line](https://medium.com/@jgefroh/a-beginners-guide-to-linux-command-line-56a8004e2471) - Medium article by Joseph Gefroh
+- Quick Tools
 
-## Solidity Environment Setup
+  Quick tools such as a Wanchain address validator, or a Wanchain address converter to convert an Ethereum address to Wanchain address. Quick tools ported from Ethereum to Wanchain are also welcome.  The tools can be provided as standalone applications or as an online service. For example, WanDevs has already ported MyEtherWallet and MetaMask to become Wanchain-compatible.
 
-You can use any text editor that, preferably, supports Solidity syntax highlighting. Some of the popular editors are Virtual Studio Code Text and Atom. You can also use an IDE which provides a more complete developer experience. Below we compiled a list of suggestiin to get you set up.
+- dApps using on iWan and WanX
+  
+  With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs.  Developers are free to build applications for decentralized finance and other areas of interest or expertise.
 
-- [Cryptofex](https://cryptofex.io/download/) - Standalone IDE and compiler.
-- [Remix](https://remix.ethereum.org/) - Online realtime compiler and runtime.
-- [Atom](https://atom.io/) - A hackable text editor for the 21st Century
-- [Visual studio code](https://code.visualstudio.com/) - Free. Open source. Runs everywhere.
-- [Sublime](https://www.sublimetext.com/) - A sophisticated text editor for code, markup and prose
-- [Emacs](https://www.gnu.org/software/emacs/) - An extensible, customizable, free/libre text editor — and more.
+- Open-Ended Projects Proposals
 
-## License
+  If you have a cool idea and want to be funded, you can submit a proposal to Wanchain. Wanchain’s team will evaluate the proposal and provide possible feedback and support.  The topics that we are particular interested are in cross-blockchain use cases and decentralized financial applications.
+
+- Offline Wallet
+
+  Build a wallet that can be used to create and sign transactions on an offline machine, then copy the signed raw data to an online machine to send out the transaction to the blockchain. This application will benefit users who do not have a hardware wallet and would like to ensure that their transactions and private keys are secure and not tampered by malware and viruses.
+- iWan Clients
+
+  iWan is an infrastructure that provides an API and SDK for developers building applications without the need to run blockchain nodes. Currently a client SDK based on nodejs has been developed. There is a need to develop other SDK clients in programming languages such as java, python, go, C++ etc.
+
+### License
 
 The content and code examples provided here on this site are covered by the MIT License.
 

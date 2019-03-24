@@ -1,6 +1,10 @@
-- title: Getting Started
+- title: WanDevs
   nodes:
   - url: /
+    title: Homepage
+- title: Getting Started
+  nodes:
+  - url: /docs/
     title: Introduction
   - url: /docs/wanchain-overview/
     title: Overview of Wanchain
