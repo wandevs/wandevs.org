@@ -6,6 +6,8 @@
   nodes:
   - url: /docs/
     title: Introduction
+  - url: /docs/doc-contribution/
+    title: Contributions
   - url: /docs/wanchain-overview/
     title: Overview of Wanchain
   - url: /docs/difference-between-wanchain-and-ethereum/
@@ -104,8 +106,3 @@
     title: Using the Development Network
   - url: /docs/set-up-wanchain-private-testnet/
     title: Create a Private Testnet
-
-- title: Using the documentation
-  nodes:
-  - url: /docs/doc-contribution/
-    title: Contributions
