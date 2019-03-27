@@ -24,13 +24,21 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto">
 
+  <link rel="stylesheet" href="{{ "/assets/tipuesearch/css/normalize.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/tipuesearch/css/tipuesearch.css" | relative_url }}">
+
   <!-- Icons -->
   <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png"> -->
   <!-- <link rel="shortcut icon" href="/public/favicon.ico"> -->
   <script src="https://embed.runkit.com"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  <script>
+
+  <script src="{{ "/assets/tipuesearch/tipuesearch_content.js" | relative_url }}"></script>
+  <script src="{{ "/assets/tipuesearch/tipuesearch_set.js" | relative_url }}"></script>
+  <script src="{{ "/assets/tipuesearch/tipuesearch.min.js" | relative_url }}"></script>
+
+    <script>
       ((window.gitter = {}).chat = {}).options = {
           room: 'wandevs/community'
       };
