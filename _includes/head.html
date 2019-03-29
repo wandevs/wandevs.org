@@ -36,6 +36,12 @@
 
   <script src="{{ "/assets/tipuesearch/tipuesearch_content.js" | relative_url }}"></script>
   <script src="{{ "/assets/tipuesearch/tipuesearch_set.js" | relative_url }}"></script>
+  <script>
+      if (window.location.host.indexOf('wandevs.org') > -1 && location.protocol != 'https:')
+      {
+          location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+      }
+  </script>
   <script src="{{ "/assets/tipuesearch/tipuesearch.min.js" | relative_url }}"></script>
 
     <script>
