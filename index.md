@@ -12,34 +12,66 @@ Welcome to WanDevs, the community powering the growth of cross-blockchain techno
 
 1.	Sign up for our Gitter Community <a href="https://gitter.im/wandevs/community" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">here</a> or click the Open Chat button in the bottom-right of your screen, and introduce yourself to the team.
 2.	Please fill out <a href="https://goo.gl/forms/EKfezdardvMldK0u2" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">this welcome form</a>.
-3.	Contact [Oliver](mailto:oliver@wanchain.org) to collect your 100 WAN sign-up gift (requires verification of an active Github). Only the first 100 developers and 100 referrals are eligble for this giveaway.
-4.	Invite other blockchain developers in your network to join WanDevs (50 WAN referral gift for up to 10 referrals). Referral gift will be given when a new developer joins the Gitter, completes the welcome form, lists you in the “referred by” box, and has been confirmed to have an active Github account.
+3.	Oliver Birch will contact you to collect your 100 WAN sign-up gift (requires verification of an active Github). Only the first 100 developers and 100 referrals are eligble for this giveaway. After the 100 cap has been reached, a lottery will be held. The lottery will be 20 WAN for 50 people who join, and 20 WAN to 50 people who have referred people. Again, this will require an active Github.
 
-### Start Building
-There are many opportunities to contribute to the WanDevs community. The projects below are examples of some of the highest priority needs. Bounties will vary on a case-by-case basis, so please reach out to us to discuss in advance of starting a project.
+### Start Building - Active bounties
+There are many opportunities to contribute to the WanDevs community. The projects below are examples of some of the highest priority needs. Bounties will vary on a case-by-case basis, so please <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">reach out</a> to us to discuss in advance of starting a project.
 
-- Check and review documentation
+##### Cross-Chain dApps 
 
-  This site contains examples to start building your dApp. Please review the documentation and check the contribution page to see how you can contribute.
+Bounty: 1000 WAN+ 
 
-- Quick Tools
+With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs. Developers are free to build applications for decentralized finance and other areas of interest or expertise. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
 
-  Quick tools such as a Wanchain address validator, or a Wanchain address converter to convert an Ethereum address to Wanchain address. Quick tools ported from Ethereum to Wanchain are also welcome.  The tools can be provided as standalone applications or as an online service. For example, WanDevs has already ported MyEtherWallet and MetaMask to become Wanchain-compatible.
+##### Open-Ended Projects Proposals 
 
-- dApps using on iWan and WanX
-  
-  With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs.  Developers are free to build applications for decentralized finance and other areas of interest or expertise.
+Bounty: 1000 WAN+ 
 
-- Open-Ended Projects Proposals
+If you have a cool idea and want to be funded, you can submit a proposal to Wanchain. Wanchain’s team will evaluate the proposal and provide possible feedback and support. The topics that we are particularly interested are in cross-blockchain use cases and decentralized financial applications. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
 
-  If you have a cool idea and want to be funded, you can submit a proposal to Wanchain. Wanchain’s team will evaluate the proposal and provide possible feedback and support.  The topics that we are particular interested are in cross-blockchain use cases and decentralized financial applications.
+#####  Updating documentation: 
 
-- Offline Wallet
+WanDevs contains examples to start building your dApp. Please review the documentation and check the contribution page to see how you can contribute. 
 
-  Build a wallet that can be used to create and sign transactions on an offline machine, then copy the signed raw data to an online machine to send out the transaction to the blockchain. This application will benefit users who do not have a hardware wallet and would like to ensure that their transactions and private keys are secure and not tampered by malware and viruses.
-- iWan Clients
+Bounties:  
 
-  iWan is an infrastructure that provides an API and SDK for developers building applications without the need to run blockchain nodes. Currently a client SDK based on nodejs has been developed. There is a need to develop other SDK clients in programming languages such as java, python, go, C++ etc.
+- Critical Value and workload: 250 WAN+ 
+- High Value and workload: 200 WAN+  
+- Medium Value and workload: 50 WAN+ 
+- Low Value and workload: 25 WAN+ 
+
+Claim bounty <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+
+##### iWan Clients: iWan SDK multilanguage support:  
+
+Port nodejs support of iWan to languages such as Go, Java, or Python. Javascript SDK is already completed. 
+
+Bounty: 5000 WAN+ 
+
+Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+
+##### Educational Materials:  
+
+Bounty: 400 WAN+ 
+
+- Explanatory videos on Wanchain technology 
+- Educational dApp for gamified Wanchain learning experience (see Loom’s Cryptozombies.io) 
+- Educational technical blogs (guest writer on Wanchain’s Medium) 
+
+Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+
+##### Quick Tools 
+
+Bounty: 250 WAN+ 
+
+Quick tools such as a Wanchain address validator, or a Wanchain address converter to convert an Ethereum address to Wanchain address. Quick tools ported from Ethereum to Wanchain are also welcome. The tools can be provided as standalone applications or as an online service. For example, WanDevs has already ported MyEtherWallet and MetaMask to become Wanchain-compatible. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+
+### Completed Bounties 
+
+- MetaMask for Wanchain (WanMask) 
+  - Bounty Rewarded: 6000 WAN 
+- MyEtherWallet for Wanchain (MyWanWallet) 
+  - Bounty Rewarded: 6000 WAN 
 
 ### License
 
