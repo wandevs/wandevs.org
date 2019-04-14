@@ -75,7 +75,8 @@ const web3 = new Web3(new Web3.providers.HttpProvider('https://mywanwallet.nl/te
 const WanchainTx = require('wanchainjs-tx')
 const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
 
-nonce = web3.eth.getTransactionCount('0xbe862ad9abfe6f22bcb087716c7d89a26051f74c')
+// Get Nonce and send TX (this wont work if there are pending TX)
+web3.eth.getTransactionCount('0xbe862ad9abfe6f22bcb087716c7d89a26051f74c')
   .then(nonce => {
     let txParams = {
       Txtype: '0x01',
@@ -115,19 +116,25 @@ If you are using `iWan`, Wanchain's hosted solution, you can use the Javascript 
 const iWanClient = require('iwan-sdk');
 const WanchainTx = require('wanchainjs-tx')
 
-const apiClient = new iWanClient('YourApiKey', 'YourSecretKey');
+let options = {
+    url:"apitest.wanchain.org",
+    port:8443,
+    flag:"ws",
+    version:"v3"
+};
+const apiClient = new iWanClient('YourApiKey', 'YourSecretKey', options);
 const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
 
 const txParams = {
   Txtype: '0x01',
-  nonce: '0x00',
+  nonce: 7, // Check latest nonce manually
   gasPrice: '0x2a600b9c00',
-  gasLimit: '0x5208',
+  gasLimit: '0x10000',
   to: '0x68489694189Aa9081567dFc6D74A08c0c21D92c6',
-  value: '100000000000000000',
+  value: '0x016345785d8a0000',
   data: '0x0',
   // EIP 155 chainId - mainnet: 1, testnet: 3, privatenet: 99, devnet: 1337
-  chainId: 99
+  chainId: 3
 }
 
 // sign the transaction
