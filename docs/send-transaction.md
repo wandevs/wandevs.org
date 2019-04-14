@@ -38,7 +38,9 @@ early-stage Dapp might take this approach at first since it allows programs to
 interact with the network without the overhead of key management.
 
 **send-tx.js**
-```js
+<div id="runkit-element" class="runkit-element">
+<code></code>
+<code>
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:18545'));
 
@@ -51,7 +53,8 @@ web3.eth.sendTransaction({ from, to, value }).then(receipt => {
 }).catch(err => {
   console.log(err);
 });
-```
+</code>
+</div>
 
 Now we can run this from the command line with the following.
 
@@ -66,6 +69,7 @@ It's generally not a good idea to interact with an unlocked account. Instead, fo
 <div id="runkit-element" class="runkit-element">
 <code></code>
 <code>
+// Note: Runkit doesn't like the amount of dependencies web3/wan3 have, if it gives an error run it locally
 const Web3 = require('Wan3')
 const web3 = new Web3(new Web3.providers.HttpProvider('https://mywanwallet.nl/testnet'));
 const WanchainTx = require('wanchainjs-tx')
@@ -105,7 +109,9 @@ nonce = web3.eth.getTransactionCount('0xbe862ad9abfe6f22bcb087716c7d89a26051f74c
 
 If you are using `iWan`, Wanchain's hosted solution, you can use the Javascript SDK to send a transaction.
 
-```js
+<div id="runkit-element" class="runkit-element">
+<code></code>
+<code>
 const iWanClient = require('iwan-sdk');
 const WanchainTx = require('wanchainjs-tx')
 
@@ -143,4 +149,5 @@ apiClient.sendRawTransaction('WAN', serializedTx, (err, receipt) => {
   // make sure to close when you are done
   apiClient.close();
 });
-```
+</code>
+</div>
