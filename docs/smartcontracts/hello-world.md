@@ -6,7 +6,7 @@ title: Hello World
 
 ### Building a smart contract 
 
-This page will guide you through your first smart contract on the Wanchain blockchain. This example is purposely copied from Ethereum to demonstrate the fact that Wanchain is based on Ethereum. You can find the original page here: https://github.com/ethereum/ethereum-org/blob/master/views/content/greeter.md
+This page will guide you through your first smart contract on the Wanchain blockchain. This example is purposely copied from Ethereum to demonstrate the fact that Wanchain is based on Ethereum. You can find the original page [here](https://github.com/ethereum/ethereum-org/blob/master/views/content/greeter.md)
 
 
 ## Building a smart contract using the command line

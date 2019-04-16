@@ -51,7 +51,7 @@ The console can be used to issue many different commands, including getting the
 balance of an account, sending a transaction, and getting a transaction
 receipt. Wanchain includes all of the available
 [Ethereum commands](https://github.com/ethereum/wiki/wiki/JavaScript-API), as
-well the add command set described
+well as the add command set described
 [here](https://github.com/wanchain/wanchain-util/blob/master/web3_wan.js).
 
 Below lists just a few of the more common usages.
