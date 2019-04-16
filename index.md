@@ -6,7 +6,7 @@ title:
 
 ### Welcome
 
-Welcome to WanDevs, the community powering the growth of cross-blockchain technology. WanDevs is a community of blockchain developers who seek to educate, advocate, build, and grow cross-blockchain technology powered by Wanchain. The community is supported by the Wanchain Foundation in that the Foundation will provide ongoing support to developers, as well as the opportunity for financial support for excellent dApps or tools that emerge from the community.
+Welcome to WanDevs.org, the community powering the growth of cross-blockchain technology. WanDevs is a community of blockchain developers who seek to educate, advocate, build, and grow cross-blockchain technology powered by Wanchain. The community is supported by the Wanchain Foundation in that the Foundation will provide ongoing support to developers, as well as the opportunity for financial support for excellent dApps or tools that emerge from the community.
 
 ### Getting Started
 
