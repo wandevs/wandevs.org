@@ -38,7 +38,9 @@ early-stage Dapp might take this approach at first since it allows programs to
 interact with the network without the overhead of key management.
 
 **send-tx.js**
-```js
+<div id="runkit-element" class="runkit-element">
+<code></code>
+<code>
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:18545'));
 
@@ -51,7 +53,8 @@ web3.eth.sendTransaction({ from, to, value }).then(receipt => {
 }).catch(err => {
   console.log(err);
 });
-```
+</code>
+</div>
 
 Now we can run this from the command line with the following.
 
@@ -66,35 +69,40 @@ It's generally not a good idea to interact with an unlocked account. Instead, fo
 <div id="runkit-element" class="runkit-element">
 <code></code>
 <code>
-const Web3 = require('web3')
+// Note: Runkit doesn't like the amount of dependencies web3/wan3 have, if it gives an error run it locally
+const Web3 = require('Wan3')
+const web3 = new Web3(new Web3.providers.HttpProvider('https://mywanwallet.nl/testnet'));
 const WanchainTx = require('wanchainjs-tx')
 const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
-const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:18545'));
 
-const txParams = {
-  Txtype: '0x01',
-  nonce: '0x00',
-  gasPrice: '0x2a600b9c00',
-  gasLimit: '0x5208',
-  to: '0x68489694189Aa9081567dFc6D74A08c0c21D92c6',
-  value: '100000000000000000',
-  data: '0x0',
-  // EIP 155 chainId - mainnet: 1, testnet: 3, privatenet: 99, devnet: 1337
-  chainId: 99
-}
+// Get Nonce and send TX (this wont work if there are pending TX)
+web3.eth.getTransactionCount('0xbe862ad9abfe6f22bcb087716c7d89a26051f74c')
+  .then(nonce => {
+    let txParams = {
+      Txtype: '0x01',
+      nonce: nonce,
+      gasPrice: '0x2a600b9c00',
+      gasLimit: '0x15208',
+      to: '0x68489694189Aa9081567dFc6D74A08c0c21D92c6',
+      value: '0x016345785d8a0000',
+      data: '0x0',
+      // EIP 155 chainId - mainnet: 1, testnet: 3, privatenet: 99, devnet: 1337
+      chainId: 3
+    }
 
-// sign the transaction
-const tx = new WanchainTx(txParams)
-tx.sign(privateKey)
-console.log(tx.getSenderAddress().toString('hex'))
+  // sign the transaction
+  const tx = new WanchainTx(txParams)
+  tx.sign(privateKey)
+  console.log(tx.getSenderAddress().toString('hex'))
 
-// get the serialized signed transaction
-const serializedTx = '0x' + tx.serialize().toString('hex')
-console.log(serializedTx)
-
-// send the signed transaction to the network
-web3.eth.sendSignedTransaction(serializedTx)
-.on('receipt', console.log);
+  // get the serialized signed transaction
+  const serializedTx = '0x' + tx.serialize().toString('hex')
+  console.log(serializedTx)
+  
+  // send the signed transaction to the network
+  web3.eth.sendSignedTransaction(serializedTx)
+    .on('receipt', (result) => console.log(result));
+})
 </code>
 </div>
 
@@ -102,23 +110,31 @@ web3.eth.sendSignedTransaction(serializedTx)
 
 If you are using `iWan`, Wanchain's hosted solution, you can use the Javascript SDK to send a transaction.
 
-```js
+<div id="runkit-element" class="runkit-element">
+<code></code>
+<code>
 const iWanClient = require('iwan-sdk');
 const WanchainTx = require('wanchainjs-tx')
 
-const apiClient = new iWanClient('YourApiKey', 'YourSecretKey');
+let options = {
+    url:"apitest.wanchain.org",
+    port:8443,
+    flag:"ws",
+    version:"v3"
+};
+const apiClient = new iWanClient('YourApiKey', 'YourSecretKey', options);
 const privateKey = Buffer.from('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
 
 const txParams = {
   Txtype: '0x01',
-  nonce: '0x00',
+  nonce: 7, // Check latest nonce manually
   gasPrice: '0x2a600b9c00',
-  gasLimit: '0x5208',
+  gasLimit: '0x10000',
   to: '0x68489694189Aa9081567dFc6D74A08c0c21D92c6',
-  value: '100000000000000000',
+  value: '0x016345785d8a0000',
   data: '0x0',
   // EIP 155 chainId - mainnet: 1, testnet: 3, privatenet: 99, devnet: 1337
-  chainId: 99
+  chainId: 3
 }
 
 // sign the transaction
@@ -140,4 +156,5 @@ apiClient.sendRawTransaction('WAN', serializedTx, (err, receipt) => {
   // make sure to close when you are done
   apiClient.close();
 });
-```
+</code>
+</div>
