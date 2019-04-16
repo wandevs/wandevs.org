@@ -42,14 +42,6 @@ Bounties:
 
 Claim bounty <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
 
-##### iWan Clients: iWan SDK multilanguage support:  
-
-Port nodejs support of iWan to languages such as Go, Java, or Python. Javascript SDK is already completed. 
-
-Bounty: 5000 WAN+ 
-
-Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
-
 ##### Educational Materials:  
 
 Bounty: 400 WAN+ 
