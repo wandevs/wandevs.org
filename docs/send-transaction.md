@@ -4,7 +4,7 @@ author: tyrion70
 title: Send a Transaction
 ---
 
-With a Wanchain created, we are ready to received funds and make transactions. Before any transactions can be made, you'll need to acquire some coins. If you do not have any already, you can get some testnet coins from the [Wanchain Faucet](https://faucet1.wanchain.org).
+With a Wanchain created, we are ready to receive funds and make transactions. Before any transactions can be made, you'll need to acquire some coins. If you do not have any already, you can get some testnet coins from the [Wanchain Faucet](https://faucet1.wanchain.org).
 
 Now with coins in hand, let's make some transactions.
 
