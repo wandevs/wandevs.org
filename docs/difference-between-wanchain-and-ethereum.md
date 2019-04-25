@@ -16,7 +16,7 @@ consideration when building Dapps.
 
 ### Txtype Field Added to Transaction
 
-To facilitate privcacy transactions a new field has been inserted in the transaction format called `Txtype`. This field can currently contain two values:
+To facilitate privacy transactions a new field has been inserted in the transaction format called `Txtype`. This field can currently contain two values:
 
 * 0x01 for normal transactions
 * 0x06 for privacy transactions
