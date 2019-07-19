@@ -26,7 +26,7 @@ This change, although quite small, has a big impact on libraries that create tra
 ### Change in Address Checksum
 
 The checksum of an Ethereum address was introduced by Vitalik in [EIP-55](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md).
-To minimize the risk of collisions between Ethereum and Wanchain addresses, the checksum was changed. This ensures that when using checksummed addresses the changes of accidentally using a Wanchain address on Ethereum and vice versa is minimized.
+To minimize the risk of collisions between Ethereum and Wanchain addresses, the checksum was changed. This ensures that when using checksummed addresses the chances of accidentally using a Wanchain address on Ethereum and vice versa is minimized.
 
 
 The checksum calculation for Ethereum looks like this:
