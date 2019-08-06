@@ -11,8 +11,6 @@ Welcome to WanDevs.org, the community powering the growth of cross-blockchain te
 ### Getting Started
 
 1.	Sign up for our Gitter Community <a href="https://gitter.im/wandevs/community" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">here</a> or click the Open Chat button in the bottom-right of your screen, and introduce yourself to the team.
-2.	Please fill out <a href="https://goo.gl/forms/EKfezdardvMldK0u2" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">this welcome form</a>.
-3.	Oliver Birch will contact you to send your 100 WAN sign-up gift (requires verification of an active Github). Only the first 100 developers and 100 referrals are eligble for this giveaway. After the 100 cap has been reached, a lottery will be held. The lottery will be 20 WAN for 50 people who join, and 20 WAN to 50 people who have referred people. Again, this will require an active Github.
 
 ### Start Building - Active bounties
 There are many opportunities to contribute to the WanDevs community. The projects below are examples of some of the highest priority needs. Bounties will vary on a case-by-case basis, so please <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">reach out</a> to us to discuss in advance of starting a project.
