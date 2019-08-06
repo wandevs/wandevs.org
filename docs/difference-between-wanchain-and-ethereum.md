@@ -26,7 +26,7 @@ This change, although quite small, has a big impact on libraries that create tra
 ### Change in Address Checksum
 
 The checksum of an Ethereum address was introduced by Vitalik in [EIP-55](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md).
-To minimize the risk of collisions between Ethereum and Wanchain addresses, the checksum was changed. This ensures that when using checksummed addresses the changes of accidentally using a Wanchain address on Ethereum and vice versa is minimized.
+To minimize the risk of collisions between Ethereum and Wanchain addresses, the checksum was changed. This ensures that when using checksummed addresses the chances of accidentally using a Wanchain address on Ethereum and vice versa is minimized.
 
 
 The checksum calculation for Ethereum looks like this:
@@ -69,7 +69,7 @@ exports.toChecksumAddress = function (address) {
 }
 ```
 
-So basically convert the address to hex, but if the ith digit is a letter (ie. it's one of abcdef) print it in lowercase if the 4\*ith bit of the hash of the lowercase hexadecimal address is 1 otherwise print it in uppercase.
+So basically convert the address to hex, but if the i<sup>th</sup> digit is a letter (ie. it's one of abcdef) print it in lowercase if the 4\*ith bit of the hash of the lowercase hexadecimal address is 1 otherwise print it in uppercase.
 
 ### Change in Wallet Keyfile
 
