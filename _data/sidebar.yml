@@ -2,6 +2,8 @@
   nodes:
   - url: /
     title: Homepage
+  - url: /docs/bounties/
+    title: Bounty Program
 - title: Getting Started
   nodes:
   - url: /docs/
