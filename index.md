@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title: WanDevs
 ---
 <center><img src="/img/wandevs.jpeg" alt="Logo" height="140"/></center>
 
