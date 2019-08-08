@@ -51,7 +51,7 @@ Allows users to compete against each other in an on chain version of rock paper 
 * Security audit 
 
 
-### 3. Wanchain based DEX -- 50,000+ WAN? 
+### 3. Wanchain based DEX -- 20,000+ WAN? 
 
 **Basic Description:**  
 
