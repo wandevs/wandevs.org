@@ -8,7 +8,9 @@ title: Bounty Program
   <a href="https://forms.gle/X9JxAyWtQUvPbTZM7" target="_blank" class="my-button">Apply Now </a>
 </div>
 <br>
+
 ## Bounty Types: Close Ended & Open Ended Bounties
+
 *The bounty program consists of two types of bounties:*
 
 **Close ended:** These bounties are specific projects which the WanDevs team has defined detailed specifications for. In order to be eligible for these bounties, a developer must simply choose the bounty they are applying for, and apply through the "Apply Now" button above. Through the application process you will be asked to provide information demonstrating you posses the skills and resources needed to complete the bounty. Please wait until the WanDevs has approved your application to begin building, as not all applications will be accepted, and each close ended bounty will have only one successful applicant (however if you have an idea for how to improve a close ended bounty project, you are free to propose it as an open ended bounty through the "Apply Now" form above). See the list of close ended bounties below. The list will be updated regularly to display claimed and completed bounties. Bounty updates will be posted in the official WanDevs Gitter channel.
@@ -115,3 +117,5 @@ If you have a cool idea and want to be funded, you can submit a proposal to Wanc
   - Bounty Rewarded: 6000 WAN 
 - MyEtherWallet for Wanchain (MyWanWallet) 
   - Bounty Rewarded: 6000 WAN 
+- WanStakeInsight (PoS statistics website)
+  - Bounty Rewarded: 4000 WAN 
