@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Set up a Wanchain Node
+title: Set up a Wanchain Node (Deprecated)
 ---
 
 To be able to access the Wanchain network from your program, you need to have
