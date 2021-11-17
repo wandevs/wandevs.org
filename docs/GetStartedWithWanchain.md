@@ -1,4 +1,8 @@
-# Get Started with Wanchain
+---
+layout: page
+author: tyrion70
+title: Get Started With Wanchain
+---
 
 ## Quick Start
 For the web3.js library, you can create a local Web3 instance and set the provider to connect to Wanchain (HTTP are supported):
