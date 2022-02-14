@@ -104,5 +104,3 @@
   nodes:
   - url: /docs/PrivateChain/
     title: Setup A Private Wanchain
-  - url: /docs/set-up-wanchain-private-testnet/
-    title: Create a Private Testnet
