@@ -1,4 +1,8 @@
-# Setup A Private Wanchain On Your Local Machine
+---
+layout: page
+author: WanDev
+title: Setup A Private Wanchain On Your Local Machine
+---
 
 Follow the steps below to start a single-node Wanchain private chain locally.
 
