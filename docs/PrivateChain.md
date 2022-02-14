@@ -1,4 +1,4 @@
-# Get Started With Wanchain Private Chain On Your Local Machine
+# Launch Wanchain Private Chain On Your Local Machine
 
 Follow the steps below to start a single-node Wanchain private chain locally.
 
