@@ -89,13 +89,19 @@ The main disadvantages of Remix compared to truffle include:
 
 The interface after opening remix is as follows:
 
+![](pic/1.png)
+
 When you open Remix for the first time, you can see the samples of *.sol file it provides.
 
 Click in the left panel to open the code file in the right window.
 
+![](pic/2.png)
+
 When you press Ctrl+S for saving, the compilation will be triggered automatically.
 
 When an error occurs in the compilation, the error contents will be displayed on the compilation page, and an error message will be displayed in the corresponding line of the code:
+
+![](pic/3.png)
 
 By default, Remix will only compile files opened in the current window (and its dependent files) rather than all files.
 
@@ -107,18 +113,26 @@ This step may take from 10 seconds to a few minutes depending on the network sta
 
 When the compiled kernel is downloaded, it generally takes only a few seconds to compile the sol file.
 
+![](pic/4.png)
+
 After the compilation is successful, the details of the contracts will be displayed.
 
 You can switch between different sub-contracts to view the details of each.
 
 You can easily get the contract ABI, contract function hash, and other contract information.
 
+![](pic/05.png)
+
 Click to switch to the contract deployment panel to deploy the contract.
+
+![](pic/6.png)
 
 As shown in the figure above, where:
 (1) Deployment page;
 
 (2) You can choose different wallets or networks. The default JavaScript VM is an evm node simulator built into the browser, which can simulate the deployment and execution of contracts.
+
+![](pic/7.png)
 
 Select Injected Web3 in the drop-down list to connect to MetaMask wallet, and Web3 Provider can use a custom RPC address.
 
@@ -131,6 +145,8 @@ By choosing the MetaMask wallet, you can easily link to different blockchain net
 (5) Linking to the current deployed contract address. When you configure the existing contract, you should use this button. Fill in the contract address on the right.
 
 After the contract is deployed or loaded, you can interact with the contract, as shown in the following figure:
+
+![](pic/8.png)
 
 The orange or red button is the writing method of the contract, and the transaction needs to be sent to the chain.
 Blue is the reading method of the contract.
@@ -151,8 +167,14 @@ Execute in the local project directory:
 
 You can start listening monitor in the local directory. When you start this command, you need online network. So if the network is not good, you need to wait for a while. After the startup is successful, you can see the following output information:
 
+![](pic/9.png)
+
 
 At this point, select `- connect` to localhost in the workspace drop-down box of Remix to link to the local directory.
+
+![](pic/10.png)
+
+![](pic/11.png)
 
 After the connection is successful, you can see the local directory structure in the left window, and you select the contract to compile and deploy.
 
