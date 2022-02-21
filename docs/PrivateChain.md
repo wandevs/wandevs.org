@@ -189,5 +189,6 @@ You can link to the local directory. The reason is that the browser storage spac
 The latest version is supported by default and can be downloaded automatically when compiling. If you need an early version (< 0.8.0), you need to install it locally and link to the local directory for use.
 
 - How to flatten the contract?
+
 For the latest version of solidity contracts, the Truffle-flattener tool cannot be used. You can install Flattener plugin.
 
