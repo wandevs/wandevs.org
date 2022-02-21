@@ -169,18 +169,23 @@ At present, Ethereum can be debugged, but there are still compatibility problems
 ### 6.5 FAQ
 
 - It prompts that the debug_traceTransaction interface cannot be found when I debug. What should I do?
+
 You can try linking the Web3 Provider on the compile page for debugging. It maybe results from Remix or RPC does not support the debug API.
 
 - Can I use Wanchain directly?
+
 To deploy and use the Wanchain contracts, the eVM version must be set to Byzantium at present.
 
 - There is no response on the interface.
+
 Refresh the webpage and try it again.
 
 - The contract codes are missing
+
 You can link to the local directory. The reason is that the browser storage space is insufficient.
 
 - Does it support direct import the @openzeppelin library?
+
 The latest version is supported by default and can be downloaded automatically when compiling. If you need an early version (< 0.8.0), you need to install it locally and link to the local directory for use.
 
 - How to flatten the contract?
