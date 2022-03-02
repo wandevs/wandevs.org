@@ -20,7 +20,7 @@ You will have an executable file of Gwan after you unzip the downloaded file.
 
 Get the default testing keystore account by click the following URL:
 
-https://raw.githubusercontent.com/wanchain/go-wanchain/develop/bootnode/UTC--2017-05-14T03-13-33.929385593Z--2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e
+https://raw.githubusercontent.com/wanchain/go-wanchain/develop/bootnode/UTC-2017-05-14T03-13-33.929385593Z-2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e
 
 You can see a json string on your browser after opening the URL above. Save the info to a file locally by "Ctrl+S".
 
