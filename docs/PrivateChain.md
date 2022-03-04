@@ -14,6 +14,10 @@ Go to Wanchain Github channel to download the latest go-wanchain binary file:
 
 https://github.com/wanchain/go-wanchain/releases
 
+**Make sure that the version you download is v2.2.1-beta.5 or later versions.**
+
+**Please use the branch 2.2-dev as the latest codes if you use the source codesto compile.**
+
 Please download the correct file according to your local operating system.
 
 You will have an executable file of Gwan after you unzip the downloaded file.
@@ -61,7 +65,7 @@ The parameters of connecting the local private chain node by MetaMask are as fol
 
 * RPC URL: http://127.0.0.1:8545
 
-* Chain ID: 6
+* Chain ID: 666
 
 * Symbol: WAN
 
