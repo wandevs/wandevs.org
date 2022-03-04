@@ -16,7 +16,7 @@ https://github.com/wanchain/go-wanchain/releases
 
 **Make sure that the version you download is v2.2.1-beta.5 or later versions.**
 
-**Please use the branch 2.2-dev as the latest codes if you use the source codesto compile.**
+**Please use the branch 2.2-dev as the latest codes if you use the source codes to compile.**
 
 Please download the correct file according to your local operating system.
 
