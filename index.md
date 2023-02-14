@@ -17,8 +17,6 @@ There are many opportunities to contribute to the WanDevs community. The project
 
 ##### Cross-Chain dApps 
 
-Bounty: 1000 WAN+ 
-
 With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs. Developers are free to build applications for decentralized finance and other areas of interest or expertise. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
 
 ##### Open-Ended Projects Proposals 
