@@ -17,7 +17,7 @@ There are many opportunities to contribute to the WanDevs community. The project
 
 ##### Cross-Chain dApps 
 
-With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs. Developers are free to build applications for decentralized finance and other areas of interest or expertise. Submit proposal <a href="mailto: techsupport@wanchain.org" target="_blank" rel="noopener">to here</a>. 
+With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs. Developers are free to build applications for decentralized finance and other areas of interest or expertise.
 
 ##### Open-Ended Projects Proposals  
 
