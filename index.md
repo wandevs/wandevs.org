@@ -13,15 +13,15 @@ Welcome to WanDevs.org, the community powering the growth of cross-blockchain te
 1.	Sign up for our Gitter Community <a href="https://gitter.im/wandevs/community" target="_blank" rel="noopener noreferrer" role="link" tabindex="0">here</a> or click the Open Chat button in the bottom-right of your screen, and introduce yourself to the team.
 
 ### Start Building - Active bounties
-There are many opportunities to contribute to the WanDevs community. The projects below are examples of some of the highest priority needs. Bounties will vary on a case-by-case basis, so please <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">reach out</a> to us to discuss in advance of starting a project.
+There are many opportunities to contribute to the WanDevs community. The projects below are examples of some of the highest priority needs. Bounties will vary on a case-by-case basis, so please <a href="mailto: techsupport@wanchain.org" target="_blank" rel="noopener">reach out</a> to us to discuss in advance of starting a project.
 
 ##### Cross-Chain dApps 
 
-With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs. Developers are free to build applications for decentralized finance and other areas of interest or expertise. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+With iWan and WanX providing connectivity to Wanchain’s blockchain, developers can easily build dApps using these API and SDKs. Developers are free to build applications for decentralized finance and other areas of interest or expertise. Submit proposal <a href="mailto: techsupport@wanchain.org" target="_blank" rel="noopener">to here</a>. 
 
 ##### Open-Ended Projects Proposals  
 
-If you have a cool idea and want to be funded, you can submit a proposal to Wanchain. Wanchain’s team will evaluate the proposal and provide possible feedback and support. The topics that we are particularly interested are in cross-blockchain use cases and decentralized financial applications. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+If you have a cool idea and want to be funded, you can submit a proposal to Wanchain. Wanchain’s team will evaluate the proposal and provide possible feedback and support. The topics that we are particularly interested are in cross-blockchain use cases and decentralized financial applications. 
 
 #####  Updating documentation 
 
@@ -33,11 +33,9 @@ WanDevs contains examples to start building your dApp. Please review the documen
 - Educational dApp for gamified Wanchain learning experience (see Loom’s Cryptozombies.io) 
 - Educational technical blogs (guest writer on Wanchain’s Medium) 
 
-Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
-
 ##### Quick Tools 
 
-Quick tools such as a Wanchain address validator, or a Wanchain address converter to convert an Ethereum address to Wanchain address. Quick tools ported from Ethereum to Wanchain are also welcome. The tools can be provided as standalone applications or as an online service. For example, WanDevs has already ported MyEtherWallet and MetaMask to become Wanchain-compatible. Submit proposal <a href="https://forms.gle/oSK9HW5ngaS9kvvK7" target="_blank" rel="noopener">here</a>. 
+Quick tools such as a Wanchain address validator, or a Wanchain address converter to convert an Ethereum address to Wanchain address. Quick tools ported from Ethereum to Wanchain are also welcome. The tools can be provided as standalone applications or as an online service. For example, WanDevs has already ported MyEtherWallet and MetaMask to become Wanchain-compatible. 
 
 ### Completed Bounties 
 
