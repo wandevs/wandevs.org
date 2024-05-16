@@ -19,7 +19,6 @@ consideration when building Dapps.
 To facilitate privacy transactions a new field has been inserted in the transaction format called `Txtype`. This field can currently contain two values:
 
 * 0x01 for normal transactions
-* 0x06 for privacy transactions
 
 This change, although quite small, has a big impact on libraries that create transations.
 
@@ -142,4 +141,4 @@ The wallet file for Wanchain is different from an Ethereum wallet.
 }
 ```
 
-As you can see above there is another object called `crypto2` as well as a `waddress` entry. The `waddress` is your private address and the `crypto2` object contains the second private key needed to create the one-time addresses associated with the privacy transactions. The wallet is backwards compatible with Ethereum though, so you could use a Wanchain wallet on both Ethereum and Wanchain.
+As you can see above there is another object called `crypto2` as well as a `waddress` entry. The `waddress` is your private address and the `crypto2` object contains the second private key needed to create the one-time addresses. The wallet is backwards compatible with Ethereum though, so you could use a Wanchain wallet on both Ethereum and Wanchain.

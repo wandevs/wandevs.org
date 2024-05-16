@@ -6,10 +6,8 @@ permalink: /faqs/
 # List of FAQs
 
 * What is Wanchain
-* How to make a privacy transaction
 * How to make a crosschain transaction
 * How does crosschain work
-* How does a privacy transaction work
 * [How to set up a Wanchain node](/faqs/how-to-setup-wanchain-node.html)
 * [How to set up a Bitcoin node](/faqs/how-to-setup-bitcoin-node.html)
 * [How to set up an Ethereum node](/faqs/how-to-setup-ethereum-node.html)

@@ -96,17 +96,3 @@ To let WanWalletGui use your node you need to enable the IPCPATH parameter in th
 
 ```# IPCPATH=[fill in your IPC path here  to use wanwalletgui with your node]```
 
-### Initializing OTAs
-
-Lastly to make privacy tx work you need to create a few OTAs first. you can use the initializeota script for that.
-
-```js
-loadScript("./loadScript/initializeota.js")
-```
-
-This will initialize 9 OTAs for each allowed privacy tx value:
-
-```
-var tranValues = [ 10, 20, 50, 100, 200, 500, 1000, 5000, 50000 ];
-
-```

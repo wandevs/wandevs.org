@@ -72,13 +72,6 @@
       - url: /docs/bitcoin/outbound-revoke/
         title: Outbound Bitcoin Revoke
 
-- title: Privacy Transactions
-  nodes:
-  - url: /docs/privacy/overview/
-    title: Overview of Privacy Transactions
-  - url: /docs/privacy/transaction/
-    title: Make a Privacy Transaction
-
 - title: Create your first Wanchain application
   nodes:
   - url: /docs/create-application/introduction/

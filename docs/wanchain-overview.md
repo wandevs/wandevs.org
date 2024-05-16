@@ -9,7 +9,7 @@ title: Overview
 Bitcoin was launched in 2009 by an anonymous individual named Satoshi Nakamoto. In his whitepaper Satoshi outlined his vision for "A peer to peer electronic cash system". As time went by, Bitcoin started getting traction and was increasingly used in commerce.
 Ethereum was launched in 2015 with the intent of creating a network for "programmable money" which could one day become the backbone of a new decentralized financial system.
 
-Time went by, and many new blockchains started to appear each one for a different use case privacy, scalability, governance... These protocols all had a different vision, roadmap and community.
+Time went by, and many new blockchains started to appear each one for a different use case scalability, governance... These protocols all had a different vision, roadmap and community.
 It became obvious that the future of this industry would depend on many heterogenous blockchains which would each have its own set of rules and governance processes.
 
 These blockchains would each be in their own bubble, siloed and closed to the outside.
@@ -35,11 +35,8 @@ Wanchain is its own chain, established as a fork from the Ethereum project, and 
 
 Being a fork of Ethereum, Wanchain provides much of the same framework, such as an EVM that runs Solidity-based contract code. As a consequence, practically all the project builts on Ethereum could be deployed to Wanchain with no or only minimal changes, and utility packages built for Ethereum (like Truffle, Web3, etc.) can be used on Wanchain as well.
 
-In addition to the feature set inherited from Ethereum, Wanchain also adds two new features: privacy transactions, and cross-chain transactions.
+In addition to the feature set inherited from Ethereum, Wanchain also adds two new features: cross-chain transactions.
 
-#### Privacy Transactions
-
-Wanchain provides a privacy smart contract built into the protocol that uses ring signatures to mask the intended recipient of a transaction. The contract allows users to "lock" a particular amount of WAN into the contract, which then can later be retrieved by the recipient.
 
 #### Cross-chain Transactions
 

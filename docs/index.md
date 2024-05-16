@@ -11,7 +11,6 @@ title: Introduction
 - Compile a contract
 - Deploy a contract
 - Integrate cross chain in a Dapp
-- Integrate privacy in a Dapp
 
 ## Solidity Experience
 

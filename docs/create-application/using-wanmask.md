@@ -11,7 +11,7 @@ One of the fastest ways to start building your own dApp is using WanMask. WanMas
 
 The most important aspect of WanMask is that it allows you to interact with smart contracts which gives you as a Wanchain Developer the opportunity to have them interact with your dApp in their browser without having the burden of loading a complete wallet.
 
-WanMask includes a safe signing process where users are asked to confirm transactions first. It was ported from MetaMask and has the same options that MetaMask has. In the future also privacy transactions and cross-chain functionality will be added to it to further enhance the possibilities you have with your dApp.
+WanMask includes a safe signing process where users are asked to confirm transactions first. It was ported from MetaMask and has the same options that MetaMask has. In the future also cross-chain functionality will be added to it to further enhance the possibilities you have with your dApp.
 
 ### Getting WanMask
 
