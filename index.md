@@ -6,7 +6,7 @@ title:
 
 ### Notice
 
-**Hello developers, we kindly remind you that the content described in this document is outdated and is no longer maintained. Please go to the new [Wanchain online documentation](docs.wanchain.org). Thank you.**
+**Hello developers, we kindly remind you that the content described in this document is outdated and is no longer maintained. Please go to the new [Wanchain Documentation](docs.wanchain.org). Thank you.**
 
 ### Welcome
 
