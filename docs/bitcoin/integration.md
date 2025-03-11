@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bitcoin Integration
+title: Bitcoin Integration (Obsolete)
 ---
 
 The Wanchain cross-chain feature currently includes mainnet and testnet
